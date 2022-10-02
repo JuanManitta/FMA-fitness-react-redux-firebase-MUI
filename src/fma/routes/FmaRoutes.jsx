@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { Ranking, Alumnos, Actividades, Cuotas, FmaPage, Equipo } from "../pages/"
+import { Ranking, Calendario, Actividades, Suscripcion, FmaPage, Equipo } from "../pages/"
 
 export const FmaRoutes = () => {
   return (
@@ -10,13 +10,13 @@ export const FmaRoutes = () => {
 
         <Route path="/ranking" element={<Ranking/>} />
 
-        <Route path="/alumnos" element={<Alumnos/>} />
+        <Route path="/calendario" element={<Calendario/>} />
 
         <Route path="/actividades" element={<Actividades/>} />
 
         <Route path="/equipo" element={<Equipo/>} />
 
-        <Route path="/cuotas" element={<Cuotas/>} />
+        <Route path="/suscripcion" element={<Suscripcion/>} />
     </Routes>
   )
 }

@@ -2,7 +2,11 @@ import { LoginOutlined, MenuOutlined } from "@mui/icons-material"
 import { Link as RouterLink } from 'react-router-dom';
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 
-export const Navbar = ({ drawerWidth = 240 }) => {
+export const Navbar = ({ drawerWidth = 240, isOpen, setIsOpen }) => {
+    const handleBurguerModal = () =>{
+        setIsOpen(false)
+    }
+    
   return (
     <AppBar 
         position='fixed'
@@ -12,11 +16,11 @@ export const Navbar = ({ drawerWidth = 240 }) => {
         }}
     >
         <Toolbar>
-            <IconButton
+            <IconButton onClick={handleBurguerModal}
             color="inherit"
             edge="start"
             sx={{mr: 2, display: {sm: 'none' }}}>
-                <MenuOutlined/>
+                <MenuOutlined />
             </IconButton>
             <Grid container
                 direction='row'

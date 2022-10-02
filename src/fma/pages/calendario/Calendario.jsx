@@ -3,7 +3,7 @@ import { Box } from "@mui/system"
 import { AuthLayout } from "../../../auth/layout/AuthLayout"
 import { FmaLayout } from "../../layout/FmaLayout"
 
-export const Alumnos = () => {
+export const Calendario = () => {
 
   return (
 <FmaLayout>
@@ -23,7 +23,7 @@ export const Alumnos = () => {
         <Grid
         item
         xs={3}
-        sx={{ backgroundColor: 'white', padding: 4, borderRadius: 2, boxShadow: '5', width: '400px' }} >
+        sx={{ backgroundColor: 'white', padding: 4, borderRadius: 2, boxShadow: '5', width: {md: '400px', sm: '350px', xs: '90%'} }} >
 
           <Typography color='primary.main' className="text-center" variant="h5" sx={{mb: 3}}>
             <b>Nuevo Alumno</b>

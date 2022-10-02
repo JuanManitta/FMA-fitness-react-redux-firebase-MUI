@@ -1,12 +1,10 @@
-import { FitnessCenter, FormatListBulleted, MilitaryTech, Paid, Person, TurnedInNot } from '@mui/icons-material'
-import {  Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar } from '@mui/material'
+import { AddCard, CalendarMonth, FitnessCenter, FormatListBulleted, MenuOutlined, MilitaryTech } from '@mui/icons-material'
+import {  Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const Sidebar = ({drawerWidth}) => {
+export const Sidebar = ({ drawerWidth, isOpen, setIsOpen }) => {
 
-    const [isActive, setIsActive] = useState(true)
     const navigate = useNavigate();
 
     const onRankingNavigate = () =>{
@@ -14,8 +12,8 @@ export const Sidebar = ({drawerWidth}) => {
             replace: true
         });
     };
-    const onAlumnosNavigate = () =>{
-        navigate('/alumnos', {
+    const onCalendarioNavigate = () =>{
+        navigate('/calendario', {
             replace: true
         });
     };
@@ -29,15 +27,21 @@ export const Sidebar = ({drawerWidth}) => {
             replace: true
         });
     };
-    const onCuotasNavigate = () =>{
-        navigate('/cuotas', {
+    const onSuscripcionNavigate = () =>{
+        navigate('/suscripcion', {
             replace: true
         });
     };
+    const handleBurguerModal = () =>{
+        setIsOpen(true)
+    }
+
+    
+   
   return (
     <Box
         component="nav"
-        sx={{ width: {sm: drawerWidth}, flexShrink: {sm: 0 }}}
+        sx={{ width: {sm: drawerWidth}, flexShrink: {sm: 0 }, display: {xs: isOpen === true ? 'none' : 'block', sm: 'block'}  }}
     >
         <Drawer
             component={Paper}
@@ -47,16 +51,25 @@ export const Sidebar = ({drawerWidth}) => {
                 display: { xs: 'block' }, '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth , boxShadow: 3 , backgroundColor: 'primary.main' }
             }}
         >
-            <Toolbar >
+            <Toolbar 
+            sx={{display: 'block', paddingLeft: 0 }}>
                 <Grid
                 container
-                direction="column"
-                alignContent="center">
+                direction="row"
+                alignContent="center"
+                justifyContent="center"
+                sx={{display: 'flex' }}>
+                    <IconButton
+                        onClick={handleBurguerModal} 
+                        sx={{mr: 1, display: {sm: 'none'}, color: 'tercery.main', ':hover': {backgroundColor: 'primary.main'} }}>
+                            <MenuOutlined/>
+                    </IconButton>
                     <img className='logo_sidebar' src="./canva/Iconos/LOGOFMA.png" alt="" />
                 </Grid>
             </Toolbar>
             <List>
                 <ListItem 
+                    
                     disablePadding
                     sx={{mt: '40px', ':hover': {backgroundColor: 'secondary.main'} }}
                 >
@@ -64,9 +77,10 @@ export const Sidebar = ({drawerWidth}) => {
                     >
                         <ListItemIcon
                         >
-                            <MilitaryTech className='icon'/>
+                            <FormatListBulleted className='icon'/>
                         </ListItemIcon>
-                        <Grid container color="white">
+                        <Grid 
+                        container color="white">
                             <ListItemText primary='ACTIVIDADES'/>
                         </Grid>
                     </ListItemButton>
@@ -79,7 +93,7 @@ export const Sidebar = ({drawerWidth}) => {
                     onClick={onRankingNavigate} 
                     >
                         <ListItemIcon>
-                            <FormatListBulleted className='icon'/>
+                            <MilitaryTech className='icon'/>
                         </ListItemIcon>
                         <Grid container color="white">
                             <ListItemText primary='RANKING' />
@@ -105,12 +119,12 @@ export const Sidebar = ({drawerWidth}) => {
                     disablePadding
                     sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
                 >
-                    <ListItemButton onClick={onAlumnosNavigate}>
+                    <ListItemButton onClick={onCalendarioNavigate}>
                         <ListItemIcon>
-                            <Person className='icon'/>
+                            <CalendarMonth className='icon'/>
                         </ListItemIcon>
                         <Grid container color="white">
-                            <ListItemText primary='ALUMNOS'/>
+                            <ListItemText primary='CALENDARIO'/>
                         </Grid>
                     </ListItemButton>
                 </ListItem>
@@ -119,12 +133,12 @@ export const Sidebar = ({drawerWidth}) => {
                     sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
                 >
                     <ListItemButton 
-                    onClick={onCuotasNavigate}>
+                    onClick={onSuscripcionNavigate}>
                         <ListItemIcon>
-                            <Paid className='icon'/>
+                            <AddCard className='icon'/>
                         </ListItemIcon>
                         <Grid container color="white">
-                            <ListItemText primary='CUOTAS'/>
+                            <ListItemText primary='SUSCRIBIRME'/>
                         </Grid>
                     </ListItemButton>
                 </ListItem>

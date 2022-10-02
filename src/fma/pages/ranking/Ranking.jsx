@@ -45,15 +45,16 @@ export const Ranking = () => {
     <Grid
       className='animate__animated animate__fadeIn animate__faster' 
       container
-      spacing={0}
       direction="column"
       alignItems="center"  
       justifyContent="center"
       sx={{ minHeight: 'calc(100vh - 120px)', padding: 3, backgroundColor:  '#F3F5FA'}}
       >
-      <Grid item>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} >
+      <Grid item
+      sx={{ width: {sm:'90%', md: '80%', xs: '100%'}}} >
+      <TableContainer 
+      component={Paper}>
+        <Table >
             <TableHead>
                 <TableRow>
                     <TableCell> <Typography sx={{ fontWeight: '700'}}>NOMBRE</Typography> </TableCell>
