@@ -127,12 +127,13 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
             disablePadding
             sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
             >
-            <ListItemButton onClick={onCalendarioNavigate}>
+            <ListItemButton 
+            onClick={onSuscripcionNavigate}>
                 <ListItemIcon>
-                    <CalendarMonth className='icon'/>
+                    <AddCard className='icon'/>
                 </ListItemIcon>
                 <Grid container color="white">
-                    <ListItemText primary='CALENDARIO'/>
+                    <ListItemText primary='ASOCIARME'/>
                 </Grid>
             </ListItemButton>
         </ListItem>
@@ -140,13 +141,12 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
             disablePadding
             sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
             >
-            <ListItemButton 
-            onClick={onSuscripcionNavigate}>
+            <ListItemButton onClick={onCalendarioNavigate}>
                 <ListItemIcon>
-                    <AddCard className='icon'/>
+                    <CalendarMonth className='icon'/>
                 </ListItemIcon>
                 <Grid container color="white">
-                    <ListItemText primary='SUSCRIBIRME'/>
+                    <ListItemText primary='CONTACTO'/>
                 </Grid>
             </ListItemButton>
         </ListItem>

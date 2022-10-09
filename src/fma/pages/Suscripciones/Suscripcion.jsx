@@ -7,10 +7,11 @@ export const Suscripcion = () => {
   
   return (
     <FmaLayout>
+      <Grid padding={3}>
       <Grid 
             xs={3}
             item
-            sx={{display: {xs: 'initial', sm: 'initial', md: 'none'}, }}
+            sx={{display: {xs: 'initial', sm: 'initial', md: 'none'}, p:4 }}
             >
               <Typography sx={{ fontWeight: 'bold', fontSize: 50 }} >ELEGÍ</Typography>
               <Grid container
@@ -29,15 +30,17 @@ export const Suscripcion = () => {
                   <Button size='large' fullWidth variant='outlined'> Anual </Button>
                 </Grid>
               </Grid>
-
           </Grid>
       
+      </Grid>
+
       <Grid 
         container
+        padding={3}
         className='animate__animated animate__fadeIn animate__faster' 
         direction="row"
         sx={{ minHeight: 'calc(100vh - 150px)', mt: 4, backgroundColor: '#F3F5FA',
-          display: 'grid', gridTemplateColumns: {md: 'repeat(3, 1fr)', sm: 'repeat(2, 1fr)' }, gap: 2}}>
+        display: 'grid', gridTemplateColumns: {md: 'repeat(3, 1fr)', sm: 'repeat(2, 1fr)' }, gap: 2}}>
 
           <Grid 
             xs={12}
@@ -93,14 +96,14 @@ export const Suscripcion = () => {
                     <Grid item xs={10}>
                       <Button 
                         sx={{backgroundColor:'#ffd300',
-                         color:'primary.main',
-                          ':hover': {backgroundColor: '#cca900', color: 'black'},
-                          fontSize: 20,
-                          mb: 2
-                        }} 
-                          size='large' 
-                          fullWidth 
-                          variant='contained'>
+                        color:'primary.main',
+                        ':hover': {backgroundColor: '#cca900', color: 'black'},
+                        fontSize: 20,
+                        mb: 2
+                      }} 
+                      size='large' 
+                      fullWidth 
+                      variant='contained'>
                             Asociarme
                         </Button>
                     </Grid>
@@ -172,14 +175,14 @@ export const Suscripcion = () => {
                     <Grid item xs={10}>
                       <Button 
                         sx={{backgroundColor:'white',
-                         color:'primary.main',
-                          ':hover': {backgroundColor: 'secondary.main', color: 'white'},
-                          fontSize: 20,
-                          mb: 2
-                        }} 
-                          size='large' 
-                          fullWidth 
-                          variant='contained'>
+                        color:'primary.main',
+                        ':hover': {backgroundColor: 'secondary.main', color: 'white'},
+                        fontSize: 20,
+                        mb: 2
+                      }} 
+                      size='large' 
+                      fullWidth 
+                      variant='contained'>
                             Asociarme
                         </Button>
                     </Grid>

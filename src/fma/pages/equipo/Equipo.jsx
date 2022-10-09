@@ -8,17 +8,12 @@ export const Equipo = () => {
 
   return (
 <FmaLayout>
-
-  <Box 
-      className='animate__animated animate__fadeIn animate__faster'  
-      sx={{ flexGrow: 1 }}>
     <Grid
-      spacing={0.5}
       container
       direction="row"
       alignItems="center"  
       justifyContent="center"
-      sx={{ minHeight: 'calc(100vh - 120px)', backgroundColor: '#F3F5FA', display:{xs:'flex', sm: 'flex', md:'flex'}}}
+      sx={{ minHeight: 'calc(100vh - 120px)', backgroundColor: '#F3F5FA', p:1, display:{xs:'flex', sm: 'flex', md:'flex'}}}
   >
     <Grid item xs={6} md={6} sm={6} sx={{boxShadow: 9, padding: 0.5, width: '100%' }}>
       <img className="img_activity" src="./canva/Iconos/Marina.png" alt="" />
@@ -33,7 +28,7 @@ export const Equipo = () => {
       <img className="img_activity" src="./canva/Iconos/Marcos.png" alt="" />    
     </Grid>
   </Grid>
-    </Box>
+
 </FmaLayout>
   )
 }

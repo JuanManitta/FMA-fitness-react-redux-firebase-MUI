@@ -26,7 +26,7 @@ export const FmaLayout = ({ children }) => {
           
 
         <Box component='main'
-        sx={{ flexGrow: 1, p: 3, backgroundColor: '#F3F5FA' }}
+        sx={{ flexGrow: 1, backgroundColor: '#F3F5FA', }}
         >
             <Toolbar/> 
             { children }
