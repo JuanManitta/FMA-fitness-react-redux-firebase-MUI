@@ -2,36 +2,48 @@ import { LoginOutlined, MenuOutlined } from "@mui/icons-material"
 import { Link as RouterLink } from 'react-router-dom';
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 
-export const Navbar = ({ drawerWidth = 240, isOpen, setIsOpen }) => {
-    const handleBurguerModal = () =>{
-        setIsOpen(false)
-    }
+export const Navbar = ({ drawerWidth = 0,isDrawerOpen, setIsDrawerOpen }) => {
+    const handleOpenDrawer = () =>{
+        setIsDrawerOpen(true)
+    };
+    
     
   return (
     <AppBar 
         position='fixed'
-        sx={{
-            width: {sm: `calc(100% - ${ drawerWidth }px)`},
-            ml: {sm: `${drawerWidth}px`}
-        }}
+        
     >
         <Toolbar>
-            <IconButton onClick={handleBurguerModal}
+            <Grid 
+            container
+            justifyContent="space-between"
+            >
+
+            <IconButton onClick={handleOpenDrawer}
             color="inherit"
             edge="start"
             sx={{mr: 2, display: {sm: 'none' }}}>
                 <MenuOutlined />
             </IconButton>
-            <Grid container
-                direction='row'
-                justifyContent='end'
-                alignItems='center'
+
+            <Grid item
+            sx={{display: {sx:'flex', sm: 'none', md: 'none' }}}>
+                <img className="logo-navbar" src="./canva/Iconos/LOGOFMA.png" alt="" />
+            </Grid>
+
+            <Grid item
+            sx={{display: {md: 'none', sm: 'none'}}}
             >
-                <IconButton color="tercery" component={RouterLink} to='/auth'>
-                    <LoginOutlined />
+                <IconButton 
+                    edge="end" 
+                    color="tercery" 
+                    component={RouterLink} to='/auth'
+                    sx={{mt:1}}>
+                    <LoginOutlined/>
                 </IconButton>
 
             </Grid>
+        </Grid>
         </Toolbar>
 
     </AppBar>

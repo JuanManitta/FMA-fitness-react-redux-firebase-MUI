@@ -9,6 +9,25 @@
     margin-top: 30px;
     margin-right: 8px;
 }
+.logo_sidebar_menu{
+    width: 130px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.logo-navbar{
+    width: 100px;
+}
+.fondo_menu{
+    width: 100%;
+    height: 120vh;
+    object-fit: cover ;
+}
+.fondo_menu_responsive{
+    width: 100%;
+    height: 140vh;
+    object-fit: cover ;
+}
+
 .img_activity {
     width: 100%;
     cursor: pointer;
@@ -26,6 +45,10 @@
 /* .background_item{
     background-color: #DBE6FD;
 } */
+.img_activities{
+    width: 100%;
+}
+
 
 
 

@@ -18,18 +18,18 @@ export const Equipo = () => {
       direction="row"
       alignItems="center"  
       justifyContent="center"
-      sx={{ minHeight: 'calc(100vh - 120px)', backgroundColor: '#F3F5FA', display:{xs:'grid', sm: 'flex', md:'flex'}}}
+      sx={{ minHeight: 'calc(100vh - 120px)', backgroundColor: '#F3F5FA', display:{xs:'flex', sm: 'flex', md:'flex'}}}
   >
-    <Grid item xs={12} md={3} sm={12} sx={{boxShadow: 9, padding: 0.5, width: '100%' }}>
+    <Grid item xs={6} md={6} sm={6} sx={{boxShadow: 9, padding: 0.5, width: '100%' }}>
       <img className="img_activity" src="./canva/Iconos/Marina.png" alt="" />
     </Grid>
-    <Grid item xs={12} md={3} sm={12} sx={{boxShadow: 9, padding: 0.5 }}>
+    <Grid item xs={6} md={6} sm={6} sx={{boxShadow: 9, padding: 0.5 }}>
       <img className="img_activity" src="./canva/Iconos/Camila.png" alt="" />    
     </Grid>
-    <Grid item xs={12} md={3} sm={12} sx={{boxShadow: 9, padding: 0.5 }}>
+    <Grid item xs={6} md={6} sm={6} sx={{boxShadow: 9, padding: 0.5 }}>
       <img className="img_activity" src="./canva/Iconos/Juan.png" alt="" />   
     </Grid>
-    <Grid item xs={12} md={3} sm={12} sx={{boxShadow: 9, padding: 0.5 }}>
+    <Grid item xs={6} md={6} sm={6} sx={{boxShadow: 9, padding: 0.5 }}>
       <img className="img_activity" src="./canva/Iconos/Marcos.png" alt="" />    
     </Grid>
   </Grid>

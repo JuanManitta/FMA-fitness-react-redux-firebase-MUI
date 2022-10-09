@@ -1,12 +1,9 @@
-import { FmaLayout } from "../layout/FmaLayout"
-import { NothingSelectedView } from "./NothingSelectedView"
+import { Inicio } from "./inicio/Inicio"
 
 
 
 export const FmaPage = () => {
   return (
-    <FmaLayout>
-      <NothingSelectedView/>
-    </FmaLayout>
+    <Inicio/>
   )
 }

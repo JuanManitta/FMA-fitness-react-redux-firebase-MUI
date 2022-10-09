@@ -1,6 +1,4 @@
 import { Button, Grid, TextField, Typography } from "@mui/material"
-import { Box } from "@mui/system"
-import { AuthLayout } from "../../../auth/layout/AuthLayout"
 import { FmaLayout } from "../../layout/FmaLayout"
 
 export const Calendario = () => {

@@ -10,6 +10,7 @@ export const AppRouter = () => {
 
         <Route path="/auth/*" element={<AuthRoutes/>}/>
 
+
         {/* Ranking sin Edición */}
         <Route path="/*" element={<FmaRoutes/>} />
 

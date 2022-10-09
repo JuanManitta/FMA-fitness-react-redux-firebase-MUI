@@ -1,1 +1,6 @@
 export * from './Actividades'
+export * from './calistenia'
+export * from './crossfit'
+export * from './yoga'
+export * from './zumba'
+export * from './turnos'

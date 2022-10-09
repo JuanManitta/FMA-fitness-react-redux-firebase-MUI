@@ -9,7 +9,7 @@ const drawerWidth = 220;
 export const FmaLayout = ({ children }) => {
 
 
-  const [isOpen, setIsOpen] = useState(true)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
     <Box 
@@ -17,12 +17,12 @@ export const FmaLayout = ({ children }) => {
       sx={{ display: 'flex' }}>
 
         <Navbar
-          setIsOpen={setIsOpen} 
-          isOpen={isOpen} 
+          isDrawerOpen={isDrawerOpen}
+          setIsDrawerOpen={setIsDrawerOpen}
           drawerWidth={ drawerWidth } />
         <Sidebar drawerWidth={drawerWidth} 
-          isOpen={isOpen} 
-          setIsOpen={setIsOpen}/>
+          isDrawerOpen={isDrawerOpen}
+          setIsDrawerOpen={setIsDrawerOpen}/>
           
 
         <Box component='main'
