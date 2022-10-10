@@ -1,8 +1,17 @@
 import { Check } from '@mui/icons-material'
 import { Button, Divider, Grid, makeStyles, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { FmaLayout } from '../../layout/FmaLayout'
 
 export const Suscripcion = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigatePayment = () =>{
+    navigate ('/Pagos', {
+      replace: true
+    })
+  };
 
   
   return (
@@ -94,7 +103,8 @@ export const Suscripcion = () => {
                   justifyContent="center"
                   sx={{mt:6}}>
                     <Grid item xs={10}>
-                      <Button 
+                      <Button
+                        onClick={handleNavigatePayment} 
                         sx={{backgroundColor:'#ffd300',
                         color:'primary.main',
                         ':hover': {backgroundColor: '#cca900', color: 'black'},

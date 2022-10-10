@@ -14,7 +14,8 @@ import {
   CrossfitTurnos, 
   CalisteniaTurnos, 
   ZumbaTurnos,  
-  Inicio
+  Inicio,
+  Pagos,
 } from "../pages/"
 
 export const FmaRoutes = () => {
@@ -43,6 +44,11 @@ export const FmaRoutes = () => {
         <Route path="calisteniaTurnos" element={<CalisteniaTurnos />} />
         <Route path="crossfitTurnos" element={<CrossfitTurnos />} />
         <Route path="zumbaTurnos" element={<ZumbaTurnos />} />
+
+
+        {/* Pagos */}
+        <Route path="/pagos" element={<Pagos/>} />
+
     </Routes>
   )
 }

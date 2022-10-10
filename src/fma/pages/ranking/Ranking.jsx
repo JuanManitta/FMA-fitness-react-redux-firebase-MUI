@@ -48,7 +48,7 @@ export const Ranking = () => {
       direction="column"
       alignItems="center"  
       justifyContent="center"
-      sx={{ minHeight: 'calc(100vh - 120px)', padding: 3, backgroundColor:  '#F3F5FA'}}
+      sx={{ minHeight: '100vh', padding: 3, backgroundColor:  '#F3F5FA'}}
       >
       <Grid item
       sx={{ width: {sm:'90%', md: '80%', xs: '100%'}}} >

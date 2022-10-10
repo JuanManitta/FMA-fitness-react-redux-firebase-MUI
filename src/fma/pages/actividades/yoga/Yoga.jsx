@@ -17,7 +17,7 @@ export const Yoga = () => {
         <Grid container
           className='animate__animated animate__fadeIn animate__faster' 
           direction="row"
-          sx={{ minHeight: 'calc(100vh - 120px)', backgroundColor: '#F3F5FA', display: {xs: 'grid', md: 'flex' }}}
+          sx={{ minHeight: '100vh', backgroundColor: '#F3F5FA', p:2, display: {xs: 'grid', md: 'flex' }}}
           >
             <Grid item
             xs={12}

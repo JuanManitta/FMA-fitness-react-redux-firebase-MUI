@@ -1,5 +1,5 @@
-import { AddCard, CalendarMonth, FitnessCenter, FormatListBulleted, FormatQuote, Home, Image, Instagram, LoginOutlined, Mail, MenuOutlined, MilitaryTech, Twitter, WhatsApp } from '@mui/icons-material'
-import {  AppBar, Button, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@mui/material'
+import { AddCard, CalendarMonth, Email, FitnessCenter, FmdGood, FormatListBulleted, FormatQuote, Home, Instagram, LibraryBooks, LoginOutlined, Mail, MenuOutlined, MilitaryTech, Phone, Security, Twitter, WhatsApp } from '@mui/icons-material'
+import {  AppBar, Button, Container, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -293,6 +293,62 @@ console.log(isDrawerOpen);
         </Grid> 
         </Box>
     </Box>
+    <footer>
+   <Box bgcolor="#464857" padding={4} >
+     <Container maxWidth="lg">
+       <Grid container spacing={5} color={'white'} sx={{display: {xs: 'grid', sm:'grid', md:'flex'}}}>
+         <Grid item xs={6}>
+           <Box borderBottom={1}>
+            <Typography variant="h5" marginBottom={1} fontWeight={'bolder'}> CONTACTO </Typography>
+           </Box>
+
+           <Box marginTop={2} display={'flex'}>
+            <FmdGood/>
+            <Typography marginLeft={2}>Calle 30, N°540</Typography>
+           </Box>
+           <Box marginTop={3} display={'flex'}>
+            <WhatsApp/>
+            <Typography marginLeft={2}>221-456-4561</Typography>
+           </Box>
+           <Box marginTop={3} display={'flex'}>
+            <Email/>
+            <Typography marginLeft={2}>gimnasiofma@contacto.com</Typography>
+           </Box>
+         </Grid>
+         <Grid item xs={6}>
+           <Box borderBottom={1} display={'flex'} sx={{justifyContent: {xs:'start', sm:'start', md:'end'}}}  >
+            <Typography variant="h5" marginBottom={1} fontWeight={'bolder'}> LEGAL </Typography>
+           </Box>
+
+           <Box marginTop={2} display={'flex'} sx={{justifyContent: {sx:'left', sm:'left', md: 'end'}}}>
+            <LibraryBooks sx={{display:{xs:'block', sm:'block', md:'none'}, mr: 2}}/>
+            <Typography marginRight={2}>Terminos y condiciones</Typography>
+            <LibraryBooks sx={{display:{xs:'none', sm:'none', md:'block'}}}/>
+           </Box>
+           <Box marginTop={3} display={'flex'} sx={{justifyContent: {sx:'left', sm:'left', md: 'end'}}}>
+            <Security sx={{display:{xs:'block', sm:'block', md:'none'}, mr: 2}}/>
+            <Typography marginRight={2}>Politicas de privacidad</Typography>
+            <Security sx={{display:{xs:'none', sm:'none', md:'block'}}}/>
+           </Box>
+           <Box marginTop={3} display={'flex'} sx={{justifyContent: {sx:'left', sm:'left', md: 'end'}}}>
+            <Phone sx={{display:{xs:'block', sm:'block', md:'none'}, mr: 2}}/>
+            <Typography marginRight={2}>Atencion al consumidor</Typography>
+            <Phone sx={{display:{xs:'none', sm:'none', md:'block'}}}/>
+           </Box>
+         </Grid>
+       </Grid>
+     </Container>
+   <Grid item xs={12} marginTop={8}>
+    <Box marginLeft={'auto'} marginRight={'auto'} borderTop={1} color={'white'} width={'70%'}>
+        <Typography marginTop={2} fontSize={13} textAlign={'center'}>
+        En Fma Fitness cuidamos tu salud, por eso te recordamos que tu apto médico es indispensable al momento de iniciar una actividad física (leyes nº 139 y 12329).
+        Copyright (c) 2022 FMAFITNESS. Todos los derechos reservados.
+        </Typography>
+    </Box>
+
+   </Grid>
+   </Box>
+ </footer>
 </>
   )
 }
