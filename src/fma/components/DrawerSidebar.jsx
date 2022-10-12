@@ -6,6 +6,11 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
 
     const navigate = useNavigate();
 
+    const handleLogout = () =>{
+        navigate('/auth', {
+            replace: true
+        });
+    };
     const onInicioNavigate = () =>{
         navigate('/inicio', {
             replace: true
@@ -60,7 +65,6 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
           
             <List>
         <ListItem 
-            
             disablePadding
             sx={{mt: '40px', ':hover': {backgroundColor: 'secondary.main'} }}
             >
@@ -164,7 +168,8 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
                  Juan Manitta
              </Typography>
 
-           <IconButton 
+           <IconButton
+               onClick={handleLogout} 
                color="tercery" 
                sx={{position: 'fixed', bottom: 10, left: 170}}>
                <LoginOutlined/>

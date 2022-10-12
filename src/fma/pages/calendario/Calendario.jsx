@@ -46,7 +46,7 @@ export const Calendario = () => {
       container
       direction="row"
       justifyContent="center"
-      sx={{ backgroundColor: '#F3F5FA', display: 'flex', p:4, justifyContent:'space-around'}}
+      sx={{ backgroundColor: '#F3F5FA', display: 'flex', pl:2, pr:2, justifyContent:'space-around'}}
       >
         <Grid item xs={5}>
           <Typography  sx={{textAlign:'center', fontSize: 30, fontWeight:'bold', mt:6, mb: 4 }}>CONTACTO</Typography>

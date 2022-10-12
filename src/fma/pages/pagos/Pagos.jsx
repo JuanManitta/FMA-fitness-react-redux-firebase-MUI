@@ -1,30 +1,53 @@
 import { ArrowBackIos, CreditCard, FitnessCenter, Person } from "@mui/icons-material"
-import { Grid, IconButton, TextField, Typography } from "@mui/material"
-import { Box, color } from "@mui/system"
+import { Button, Grid, IconButton, TextField, Typography } from "@mui/material"
+import { Box, color, styled } from "@mui/system"
+import { useNavigate } from "react-router-dom"
 
 
 
 
 
 export const Pagos = () => {
+
+  const PayButton = styled(Button)({
+
+  fontSize: 20,
+  padding: '8px 12px',
+  backgroundColor: '#ffd300',
+  borderColor: '#ffd300',
+  width: '100%',
+  marginTop:'30px',
+  '&:hover': {backgroundColor:'#cca900'}
+  })
+
+  const navigate = useNavigate();
+
+  const handleBackSuscripciones = () =>{
+    navigate ('/suscripcion', {
+      replace: true
+    })
+  };
+
   return (
     <Box component='main'
         sx={{ flexGrow: 1, backgroundColor: '#F3F5FA', }}>
           <Grid 
             className='animate__animated animate__fadeIn animate__faster'  
             container
-            
-            sx={{ minHeight: '100vh', backgroundColor: '#F3F5FA', }}>
-              <Grid 
-                item xs={6}>
+            sx={{ minHeight: '100vh', backgroundColor: '#F3F5FA', display:{xs:'grid', sm:'grid', md:'flex'} }}>
 
-                  <Grid 
+              <Grid 
+                item xs={12} sm={12} md={6}>
+
+                  <Grid
                     container
                     direction="row"
                     sx={{minHeight: '100vh', backgroundColor:'#395B64', display: 'grid'}}>
 
                       <Grid item xs={12} paddingLeft={1} marginTop={1}>
-                        <IconButton sx={{color: 'white'}}>
+                        <IconButton
+                          onClick={handleBackSuscripciones} 
+                          sx={{color: 'white'}}>
                           <ArrowBackIos fontSize="large" />
                         </IconButton>
                       </Grid>
@@ -97,9 +120,10 @@ export const Pagos = () => {
 
                   </Grid>
               </Grid>
-              <Grid item xs={6} sx={{display: 'grid', p:4}}>
+              
+              <Grid item xs={12} sm={12} md={6} sx={{display: 'grid', p:4}}>
 
-                <Grid xs={12} sx={{display: 'flex', justifyContent:'space-between', height:'20%'}}>
+                <Grid item xs={12} sx={{display: 'flex', justifyContent:'space-between', height:'20%'}}>
 
                   <Grid display={'flex'}>
                     <Grid item xs={3}>
@@ -108,8 +132,9 @@ export const Pagos = () => {
                       container
                       justifyContent="center"
                       alignContent="center" 
-                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:'51px', boxShadow:4}}>
-                      <FitnessCenter fontSize="large" sx={{ color: 'white' }}/>
+                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:{md:'51px', sm:'35px', xs: '35px'}, boxShadow:4}}>
+                      <FitnessCenter fontSize="large"  sx={{ color: 'white', display:{xs:'none', sm:'none', md:'block'}}}/>
+                      <FitnessCenter fontSize="small"  sx={{ color: 'white', display:{xs:'block', sm:'block', md:'none'}}}/>
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
@@ -128,8 +153,9 @@ export const Pagos = () => {
                       container
                       justifyContent="center"
                       alignContent="center" 
-                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:'51px', boxShadow:4}}>
-                      <Person fontSize="large" sx={{ color: 'white' }}/>
+                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:{md:'51px', sm:'35px', xs: '35px'}, boxShadow:4}}>
+                      <Person fontSize="large"  sx={{ color: 'white', display:{xs:'none', sm:'none', md:'block'}}}/>
+                      <Person fontSize="small"  sx={{ color: 'white', display:{xs:'block', sm:'block', md:'none'}}}/>
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
@@ -148,8 +174,9 @@ export const Pagos = () => {
                       container
                       justifyContent="center"
                       alignContent="center" 
-                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:'51px', boxShadow:4, opacity: 0.3}}>
-                      <CreditCard fontSize="large" sx={{ color: 'white' }}/>
+                      sx={{backgroundColor:'#395B64', p:1, borderRadius:6, width:{md:'51px', sm:'35px', xs: '35px'}, boxShadow:4, opacity: 0.3}}>
+                      <CreditCard fontSize="large"  sx={{ color: 'white', display:{xs:'none', sm:'none', md:'block'}}}/>
+                      <CreditCard fontSize="small"  sx={{ color: 'white', display:{xs:'block', sm:'block', md:'none'}}}/>
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
@@ -266,8 +293,15 @@ export const Pagos = () => {
                       </TextField>
                     </Grid>
                   </Grid>
+                  <Grid 
+                    justifyContent="center"
+                    alignContent="center"
+                    container>
+                    <Grid xs={6} item>
+                      <PayButton variant="contained" sx={{color:'primary.main'}}>pagar</PayButton>
+                    </Grid>
+                  </Grid>
                 </Grid>
-
               </Grid>
           </Grid>
     </Box>

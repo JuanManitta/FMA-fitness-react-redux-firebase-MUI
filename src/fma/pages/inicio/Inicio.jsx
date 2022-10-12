@@ -11,6 +11,12 @@ export const Inicio = ({drawerWidth = 0}) => {
 
     const navigate = useNavigate();
 
+    const handleLogout = () =>{
+        navigate('/auth', {
+            replace: true
+        });
+    };
+
     const onInicioNavigate = () =>{
         navigate('/inicio', {
             replace: true
@@ -41,12 +47,7 @@ export const Inicio = ({drawerWidth = 0}) => {
             replace: true
         });
     };
-    // const handleBurguerModal = () =>{
-    //     setIsOpen(true)
-    // }
-    // const handleBurguerModalSidebar = () =>{
-    //     setIsOpen(false)
-    // };
+    
 
     const handleDrawerOpen = () =>{
         setIsDrawerOpen(true)
@@ -54,7 +55,8 @@ export const Inicio = ({drawerWidth = 0}) => {
     const handleDrawerClose = () =>{
         setIsDrawerOpen(false)
     }
-console.log(isDrawerOpen);
+
+
   return (
     <>
     <AppBar 
@@ -238,6 +240,7 @@ console.log(isDrawerOpen);
                     </Typography>
 
                 <IconButton 
+                    onClick={handleLogout}
                     color="tercery" 
                     sx={{position: 'fixed', bottom: 10, left: 170}}>
                     <LoginOutlined/>
@@ -274,7 +277,7 @@ console.log(isDrawerOpen);
                     <Typography variant='h6' sx={{fontWeight:'400', color:{xs:'white', sm:'white', md: 'black'}}} >
                         Sumate a la comunidad de entrenamiento <br /> que <b>SI</b> consigue sus objetivos.
                     </Typography>
-                    <Button sx={{mt: 8, fontSize: 20, backgroundColor: '#ffd300', color: 'primary.main', ':hover': {backgroundColor:'#cca900', }}} size='large' variant='contained'>ASOCIATE AHORA</Button>
+                    <Button onClick={onSuscripcionNavigate} sx={{mt: 8, fontSize: 20, backgroundColor: '#ffd300', color: 'primary.main', ':hover': {backgroundColor:'#cca900', }}} size='large' variant='contained'>ASOCIATE AHORA</Button>
                     <Grid item sx={{mt:12, }}>
                         <IconButton sx={{color: {xs:'tercery.main', sm:'tercery.main', md:'#576F72'}}}>
                             <Instagram fontSize='large'/>
