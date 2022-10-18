@@ -1,10 +1,19 @@
 import { AddCard, CalendarMonth, FitnessCenter, FormatListBulleted, Home, LoginOutlined, MenuOutlined, MilitaryTech } from '@mui/icons-material'
 import { Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { startLogout } from '../../store/auth/thunks';
 
 export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
 
+    const { displayName } = useSelector( state => state.auth )
+
+    const dispatch = useDispatch()
     const navigate = useNavigate();
+
+    const onLogout = () => {
+        dispatch(startLogout())
+    }
 
     const handleLogout = () =>{
         navigate('/auth', {
@@ -54,13 +63,15 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
         direction="row"
         alignContent="center"
         justifyContent="center"
-        sx={{display: 'flex' }}>
+        sx={{display: 'flex', justifyContent:'space-around' }}>
             <IconButton
                 onClick={handleCloseDrawer} 
-                sx={{mr: 1, display: {sm: 'none'}, color: 'tercery.main', ':hover': {backgroundColor: 'primary.main'} }}>
+                sx={{ml: 1.2, p:0, mt:3, display: {sm: 'none'}, color: 'tercery.main', ':hover': {backgroundColor: 'primary.main'} }}>
                     <MenuOutlined/>
             </IconButton>
-            <img className='logo_sidebar' src="./canva/Iconos/LOGOFMA.png" alt="" />
+            <Grid sx={{mr: {xs: 3, sm: 0, md: 0 }}}>
+                <img className='logo_sidebar' src="./canva/Iconos/LOGOFMA.png" alt="" />
+            </Grid>
         </Grid>
           
             <List>
@@ -158,20 +169,21 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
 
      <Grid container
      justifyContent="space-between"
-     sx={{display:{xs: 'none', sm: 'flex', md: 'flex'}}}>
+     sx={{display:{xs: 'flex', sm: 'flex', md: 'flex'}}}>
          <Typography
              sx={{position: 'fixed',
              bottom: 18,
-             left: 60,
-             color: 'tercery.main' 
+             marginLeft:'16px',
+             color: 'tercery.main',
+          
          }}>
-                 Juan Manitta
+                 {displayName}
              </Typography>
 
            <IconButton
-               onClick={handleLogout} 
+               onClick={onLogout} 
                color="tercery" 
-               sx={{position: 'fixed', bottom: 10, left: 170}}>
+               sx={{position: 'fixed', bottom: 10, left: 170, display:{xs: 'none', sm: 'flex', md: 'flex'}}}>
                <LoginOutlined/>
            </IconButton>
        </Grid>

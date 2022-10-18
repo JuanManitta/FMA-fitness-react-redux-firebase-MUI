@@ -1,8 +1,15 @@
 import { LoginOutlined, MenuOutlined } from "@mui/icons-material"
-import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
+import { AppBar, Grid, IconButton, Toolbar } from "@mui/material"
+import { useDispatch } from "react-redux";
+import { startLogout } from "../../store/auth/thunks";
 
 export const Navbar = ({ drawerWidth = 0,isDrawerOpen, setIsDrawerOpen }) => {
+    const dispatch = useDispatch()
+
+    const onLogout = () =>{
+        dispatch(startLogout())
+    };
+
     const handleOpenDrawer = () =>{
         setIsDrawerOpen(true)
     };
@@ -34,10 +41,10 @@ export const Navbar = ({ drawerWidth = 0,isDrawerOpen, setIsDrawerOpen }) => {
             <Grid item
             sx={{display: {md: 'none', sm: 'none'}}}
             >
-                <IconButton 
+                <IconButton
+                    onClick={onLogout} 
                     edge="end" 
                     color="tercery" 
-                    component={RouterLink} to='/auth'
                     sx={{mt:1}}>
                     <LoginOutlined/>
                 </IconButton>

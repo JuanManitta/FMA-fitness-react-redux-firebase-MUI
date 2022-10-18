@@ -1,6 +1,8 @@
 import { AccessAlarmsRounded } from '@mui/icons-material'
 import { Button, Divider, Grid, List, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { startSchedule } from '../../../../../store'
 import { FmaLayout } from '../../../../layout/FmaLayout'
 
 export const TurnosLayout = ({children, 
@@ -10,6 +12,8 @@ export const TurnosLayout = ({children,
     img='', 
     text=''
 }) => {
+
+    const dispatch = useDispatch();
 
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
@@ -28,6 +32,10 @@ export const TurnosLayout = ({children,
 
     const handleModalResponsive2 = () =>{
         isOpenResponsive2 !== true ? setIsOpenResponsive2(true) || setIsOpenResponsive(false) : setIsOpenResponsive2(false);
+    }
+
+    const onSchedule = () =>{
+        dispatch(startSchedule())
     }
 
   return (
@@ -88,7 +96,7 @@ export const TurnosLayout = ({children,
                     justifyContent="space-between"
                     sx={{mb:2}}>
                         <Grid item sx={{p:0.5}}>9:00 am</Grid>
-                        <Grid item> <Button variant="contained" >Agendar</Button></Grid>
+                        <Grid item> <Button onClick={onSchedule} variant="contained" >Agendar</Button></Grid>
                     </Grid>
                     <Grid container
                     justifyContent="space-between"

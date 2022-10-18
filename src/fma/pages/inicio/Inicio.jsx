@@ -2,12 +2,21 @@ import { AddCard, CalendarMonth, Email, FitnessCenter, FmdGood, FormatListBullet
 import {  AppBar, Button, Container, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { startLogout } from '../../../store/auth/thunks'
 
 export const Inicio = ({drawerWidth = 0}) => {
 
-    // const [isOpen, setIsOpen] = useState(false);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+    const { displayName } = useSelector(state => state.auth )
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const dispatch = useDispatch()
+
+    const onLogout = () => {
+        dispatch(startLogout())
+    }
 
     const navigate = useNavigate();
 
@@ -87,7 +96,8 @@ export const Inicio = ({drawerWidth = 0}) => {
             <Grid item
             sx={{display: {md: 'none', sm: 'none'}}}
             >
-                <IconButton 
+                <IconButton
+                    onClick={onLogout} 
                     edge="end" 
                     color="tercery" 
                     sx={{mt:1}}>
@@ -229,20 +239,20 @@ export const Inicio = ({drawerWidth = 0}) => {
 
             <Grid container
             justifyContent="space-between"
-            sx={{display:{xs: 'none', sm: 'flex', md: 'flex'}}}>
+            sx={{display:{xs: 'flex', sm: 'flex', md: 'flex'}}}>
                 <Typography
                     sx={{position: 'fixed',
                     bottom: 18,
-                    left: 60,
+                    ml:'16px',
                     color: 'tercery.main' 
                 }}>
-                        Juan Manitta
+                    {displayName}
                     </Typography>
 
                 <IconButton 
-                    onClick={handleLogout}
+                    onClick={onLogout}
                     color="tercery" 
-                    sx={{position: 'fixed', bottom: 10, left: 170}}>
+                    sx={{position: 'fixed', bottom: 10, left: 170, display: {xs: 'none', sm: 'flex', md: 'flex'}}}>
                     <LoginOutlined/>
                 </IconButton>
             </Grid>

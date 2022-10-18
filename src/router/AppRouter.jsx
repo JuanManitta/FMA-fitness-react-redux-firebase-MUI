@@ -1,18 +1,29 @@
-import { Route, Routes } from "react-router-dom"
+
+
+import { Navigate, Route, Routes } from "react-router-dom"
+import { LoginPage } from "../auth/pages"
 import { AuthRoutes } from "../auth/routes/AuthRoutes"
 import { FmaRoutes } from "../fma/routes/FmaRoutes"
+import { useCheckAuth } from "../hooks"
 
 export const AppRouter = () => {
+
+  const { status } = useCheckAuth()
+
+  if( status === 'checking'){
+    return <LoginPage/>
+  };
+
   return (
     <Routes >
 
-        {/* Login */}
+      {
+        (status === 'authenticated')
+         ? <Route path="/*" element={<FmaRoutes/>} />
+         : <Route path="/auth/*" element={<AuthRoutes/>}/>
+      }
 
-        <Route path="/auth/*" element={<AuthRoutes/>}/>
-
-
-        {/* Ranking sin Edición */}
-        <Route path="/*" element={<FmaRoutes/>} />
+      <Route path='/*' element={<Navigate to='/auth/login'/>} />
 
     </Routes>
   )

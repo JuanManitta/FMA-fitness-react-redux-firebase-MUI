@@ -1,6 +1,8 @@
 import { TurnosLayout } from "../layout"
 
 export const CrossfitTurnos = () => {
+
+ 
   return (
     <TurnosLayout
     img={'./canva/Iconos/turnos/crossfit.png'}
