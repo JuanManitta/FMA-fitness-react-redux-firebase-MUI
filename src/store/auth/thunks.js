@@ -1,4 +1,6 @@
 import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassowrd, signInWithGoogle } from "../../firebase/providers";
+import { loadNotes } from "../../helpers/loadActivities";
+import { setActivities } from "../users/usersSlice";
 import { checkingCredentials, login, logout } from "./authSlice"
 
 export const checkingAuthentication = ( email, password ) => {
@@ -55,4 +57,17 @@ export const startLogout = () =>{
 
         dispatch( logout( ) )
     }
+}
+
+export const startLoadingActivities = ( ) =>{
+
+    return async(dispatch,getState) =>{
+
+        const { uid } = getState().auth
+        const activities = await loadNotes( uid );
+
+
+        dispatch(setActivities(activities))
+    }
+
 }

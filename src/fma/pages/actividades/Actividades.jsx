@@ -1,9 +1,11 @@
 import { Grid } from "@mui/material"
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { FmaLayout } from "../../layout/FmaLayout"
 
 
 export const Actividades = () => {
+
+  
 
   const navigate = useNavigate();
 
