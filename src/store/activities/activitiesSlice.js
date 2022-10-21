@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const activitiesSlice = createSlice({
     name: 'activities',
     initialState: {
+        yoga: []
         
     },
 
@@ -16,6 +17,9 @@ export const activitiesSlice = createSlice({
         setNewSchedule: (state, action) => {
             state.crossfit[0] = (action.payload)
         },
+        setYoga: (state, action) =>{
+            state.yoga.push(action.payload)
+        }
        
     }
 });
@@ -26,5 +30,6 @@ export const {
     loadingSchedule,
     editCrossfitSchedule,
     setNewSchedule,
+    setYoga
 
 } = activitiesSlice.actions;

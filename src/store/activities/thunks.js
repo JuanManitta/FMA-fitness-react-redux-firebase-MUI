@@ -1,7 +1,8 @@
-import { doc, setDoc } from "firebase/firestore/lite";
+import { collection, doc, setDoc } from "firebase/firestore/lite";
+import { useEffect } from "react";
 import { FirebaseDB } from "../../firebase/config";
 import { loadActivitiesSchedule } from "../../helpers/loadActivities"
-import { editCrossfitSchedule, loadingSchedule, setNewSchedule } from "./activitiesSlice"
+import { editCrossfitSchedule, loadingSchedule, setNewSchedule, setYoga } from "./activitiesSlice"
 
 export const startLoadingSchedule = () => {
 
@@ -33,4 +34,23 @@ export const startEditingSchedule = () =>{
         dispatch(setNewSchedule(newScheduleCrossfit))
     }
 };
+
+export const startEditingYoga = () =>{
+    return async(dispatch) =>{
+
+        const data =
+            {
+                time: '8am',
+                capacity: 10,
+                avalible: 10
+            }
+    
+
+        const newDoc = doc(collection( FirebaseDB, `/Activities/yoga/lunMierVier` ));
+        const resp = await setDoc( newDoc, data );
+        
+
+    }
+
+}
 

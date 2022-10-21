@@ -3,6 +3,9 @@ export const usersSlice = createSlice({
     name: 'users',
     initialState: {
         isSaving: false,
+        suscripted: false,
+        activities: [],
+        numberOfActivities: null,
         
     },
     reducers: {
