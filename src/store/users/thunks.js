@@ -1,50 +1,66 @@
 import { collection, doc, setDoc } from 'firebase/firestore/lite'
-import { FirebaseDB } from '../../firebase/config'
+import { FirebaseDB } from '../../firebase/config';
 import { loadingUserDataFirebase } from '../../helpers/loadingUserDataFirebase';
-import { startEditingSchedule } from '../activities/thunks';
-import { addNewActivity, loadingUserData, loadingUserData2} from './usersSlice'
+import { setNewActivity, setUserData, suscribingUser } from './usersSlice';
 
 
-
-export const startSchedule = () =>
-{
-    return async( dispatch, getState) => {
-
-        const  { uid } = getState().auth;
-        const  { crossfit } = getState().activities;
-
-       
-
-        if( crossfit[0].avalible <= 0) return;
-        // if( numberOfActivities >= 2 ) return;
-
-        //Cargar a Firebase la nueva actividad asiganda
-
-        const newActivity = {
-            name: 'crossfit',
-            days: 'Lunes, Miercoles, Viernes',
-            time: '9:00am'
-        };
-
+export const startSuscribingUser = () =>{
+    return async(dispatch, getState) => {
         
-        const newDoc = doc( collection( FirebaseDB, `${uid}/activities/activity`) );
-        const resp = await setDoc(newDoc, newActivity);
+        const { uid, displayName } = getState().auth;
 
-        newActivity.id = newDoc.id
+        const newUser = {
+            suscripted: true,
+            activities: [],
+            numberOfActivities: 0
 
-        dispatch(addNewActivity( newActivity ));
-        dispatch(startEditingSchedule());
+        }
+        const newDoc = doc( FirebaseDB, `usuarios/${uid}/userData`, displayName);
+        await setDoc(newDoc, newUser);
+
+        newUser.id = newDoc.id
+
+        dispatch(suscribingUser(newUser))
     }
 };
 
 export const startLoadingUserData = () =>{
+    return async(dispatch, getState) => {
+        
+        const { uid, displayName } = getState().auth;
 
-    return async(dispatch, getState) =>{
-
-        const { uid } = getState().auth
-        const {numberOfActivities, suscripted} = await loadingUserDataFirebase(uid);
-
-        dispatch(loadingUserData(numberOfActivities));
-        dispatch(loadingUserData2(suscripted));
+       const userData = await loadingUserDataFirebase( uid );
+        if(userData !== undefined){
+            userData.id = displayName
+            dispatch(setUserData(userData))
+        }
+       
     }
 };
+
+export const startSettingNewActivity = (item) =>{
+    return async(dispatch, getState) =>{
+
+        dispatch(setNewActivity(item));
+        
+        const { displayName, uid } = getState().auth;
+        const { userData } = getState().users;
+
+
+        const newActivity = {
+
+            activities: userData.activities,
+            numberOfActivities: userData.numberOfActivities,
+            suscripted: userData.suscripted,
+
+        }
+
+        const newDoc = doc(FirebaseDB,`usuarios/${uid}/userData`, displayName )
+        const docRef = await setDoc(newDoc, newActivity);
+
+        
+
+
+        
+    }
+}

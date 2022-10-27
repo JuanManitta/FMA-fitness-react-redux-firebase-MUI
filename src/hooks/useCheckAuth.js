@@ -1,11 +1,12 @@
+
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FirebaseAuth } from "../firebase/config";
-import { startEditingYoga, startLoadingSchedule } from "../store/activities/thunks";
+import { startLoadingSchedule } from "../store/activities/thunks";
 import { login, logout } from "../store/auth/authSlice";
-import { startLoadingActivities } from "../store/auth/thunks";
 import { startLoadingUserData } from "../store/users/thunks";
+
 
 
 export const useCheckAuth = () => {
@@ -25,16 +26,10 @@ export const useCheckAuth = () => {
       const { uid, email, displayName, photoURL} = user;
 
       dispatch( login({uid, email, displayName, photoURL}));
+      dispatch(startLoadingUserData( ) );
+      dispatch(startLoadingSchedule())
 
-      dispatch(startLoadingActivities());
-
-      dispatch(startLoadingSchedule());
-
-      dispatch(startLoadingUserData())
-
-      dispatch(startEditingYoga());
-  
-      
+    
     } )
     
   }, [])

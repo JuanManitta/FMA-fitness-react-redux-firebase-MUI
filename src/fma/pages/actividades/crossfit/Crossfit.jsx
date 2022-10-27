@@ -6,9 +6,7 @@ export const Crossfit = () => {
   const navigate = useNavigate();
 
   const handleCrossfitTurnos = () =>{
-    navigate('/crossfitTurnos', {
-      replace: true
-    })
+    navigate('/crossfitTurnos')
   }; 
 
   return (

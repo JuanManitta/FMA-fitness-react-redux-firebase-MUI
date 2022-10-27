@@ -1,35 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
+import {schedule} from '../../data/schedule'
+
+
 export const activitiesSlice = createSlice({
     name: 'activities',
     initialState: {
-        yoga: []
-        
+        activities: [],
+        isLoading: false,
     },
 
     reducers: {
-        loadingSchedule: (state, action) => {
-            state.crossfit = (action.payload)
+        setSchedule: ( state, action ) =>{
+            state.activities.push(action.payload)
 
         },
-        editCrossfitSchedule: (state, action ) => {
-           state.crossfit[0].avalible = state.crossfit[0].avalible -1
-        },
-        setNewSchedule: (state, action) => {
-            state.crossfit[0] = (action.payload)
-        },
-        setYoga: (state, action) =>{
-            state.yoga.push(action.payload)
+
+        editSchedule: ( state, action ) =>{
+            const activitySelected = action.payload;
+            const id = activitySelected.id
+            
+            const editActivity = state.activities.filter(item => item.id === id);
+            editActivity[0].capacity--
         }
        
     }
 });
 
 
-// Action creators are generated for each case reducer function
 export const { 
-    loadingSchedule,
-    editCrossfitSchedule,
-    setNewSchedule,
-    setYoga
+    editSchedule,
+    setSchedule
+    
 
 } = activitiesSlice.actions;

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startCreatingUserWithEmailPassword } from '../../store/auth/thunks';
 import { useMemo } from 'react';
+import { toast } from 'react-toastify';
 
 const formData = {
   email: '',
@@ -44,7 +45,7 @@ export const RegisterPage = () => {
     
     
     if (!isFormValid) return;
-    
+    toast.success('Usuario creado')
     dispatch(startCreatingUserWithEmailPassword(formState))
     onResetForm()
 

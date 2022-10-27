@@ -1,5 +1,6 @@
 
 
+import { useSelector } from "react-redux"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginPage } from "../auth/pages"
 import { AuthRoutes } from "../auth/routes/AuthRoutes"
@@ -9,6 +10,7 @@ import { useCheckAuth } from "../hooks"
 export const AppRouter = () => {
 
   const { status } = useCheckAuth()
+  
 
   if( status === 'checking'){
     return <LoginPage/>

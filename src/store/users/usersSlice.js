@@ -1,37 +1,52 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 export const usersSlice = createSlice({
+    
     name: 'users',
     initialState: {
-        isSaving: false,
-        suscripted: false,
-        activities: [],
-        numberOfActivities: null,
-        
+        userData: {
+            suscripted: false,
+            numberOfActivities: 0
+        },
+       
     },
     reducers: {
-        addNewActivity: (state, action  ) => {
-            state.activities.push( action.payload )
+        suscribingUser: (state, action) =>{
+            state.userData = (action.payload)
         },
-        setActivities: (state, action ) =>{
-            state.activities = (action.payload)
+        setUserData: (state, action ) =>{
+            const data = action.payload
+            state.userData = data
+    
         },
-        loadingUserData: (state, action) =>{
-            state.numberOfActivities = (action.payload)
+        cleanUserData : (state, action) =>{
+            state.userData = { suscripted: false}
         },
-        loadingUserData2: (state, action) =>{
-            state.suscripted = (action.payload)
+        setNewActivity: (state, action) =>{
+
+            const activity = action.payload
+            const newActivity = {
+                id: activity.id,
+                days: activity.days,
+                time: activity.time
+            }
+            
+            state.userData.activities.push(newActivity)
+            state.userData.numberOfActivities++
+
+
         }
-        
     }
 
     
 });
 
 
-export const { 
-    addNewActivity,
-    setActivities,
-    loadingUserData,
-    loadingUserData2
+export const {
+    suscribingUser,
+    setUserData,
+    cleanUserData,
+    setNewActivity
+    
 
  } = usersSlice.actions;

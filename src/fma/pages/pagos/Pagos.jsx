@@ -1,13 +1,23 @@
 import { ArrowBackIos, CreditCard, FitnessCenter, Person } from "@mui/icons-material"
 import { Button, Grid, IconButton, TextField, Typography } from "@mui/material"
-import { Box, color, styled } from "@mui/system"
+import { Box, styled } from "@mui/system"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import { startSuscribingUser } from "../../../store/users/thunks"
 
 
 
 
 
 export const Pagos = () => {
+
+  const dispatch = useDispatch()
+  const onPayButton = () =>{
+    toast.success('Pago exitoso, bienvenido a FMA')
+    dispatch(startSuscribingUser());
+    
+  }
 
   const PayButton = styled(Button)({
 
@@ -298,8 +308,13 @@ export const Pagos = () => {
                     alignContent="center"
                     container>
                     <Grid xs={6} item>
-                      <PayButton variant="contained" sx={{color:'primary.main'}}>pagar</PayButton>
+                      <PayButton 
+                        onClick={onPayButton}
+                        variant="contained" 
+                        sx={{color:'primary.main'}}>pagar
+                        </PayButton>
                     </Grid>
+
                   </Grid>
                 </Grid>
               </Grid>
