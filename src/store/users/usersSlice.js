@@ -30,11 +30,14 @@ export const usersSlice = createSlice({
                 days: activity.days,
                 time: activity.time
             }
-            
             state.userData.activities.push(newActivity)
             state.userData.numberOfActivities++
-
-
+        },
+        cleanUserData: (state, action) =>{
+            state.userData = {
+                suscripted: false,
+                numberOfActivities: 0
+            }
         }
     }
 
@@ -45,8 +48,8 @@ export const usersSlice = createSlice({
 export const {
     suscribingUser,
     setUserData,
-    cleanUserData,
-    setNewActivity
+    setNewActivity,
+    cleanUserData
     
 
  } = usersSlice.actions;

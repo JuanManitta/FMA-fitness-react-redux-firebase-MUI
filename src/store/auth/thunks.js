@@ -1,4 +1,5 @@
 import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassowrd, signInWithGoogle } from "../../firebase/providers";
+import { cleanActivitiesData } from "../activities/activitiesSlice";
 import { cleanUserData } from "../users/usersSlice";
 
 import { checkingCredentials, login, logout } from "./authSlice"
@@ -56,7 +57,8 @@ export const startLogout = () =>{
         await logoutFirebase();
 
         dispatch( logout( ) )
-        dispatch(cleanUserData());
+        dispatch(cleanActivitiesData())
+        dispatch(cleanUserData())
     }
 }
 

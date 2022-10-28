@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { startLogout } from '../../../store/auth/thunks'
+import  fondoMenu  from '../../../../canva/Iconos/fondoMenu.png'
 
 export const Inicio = ({drawerWidth = 0}) => {
 
@@ -269,7 +270,7 @@ export const Inicio = ({drawerWidth = 0}) => {
             direction="row"
             sx={{ backgroundColor: '#F3F5FA',   }}
         >       <Grid sx={{display: {xs: 'none', sm:'none', md: 'grid'}}}>
-                <img className='fondo_menu' src="./canva/Iconos/fondoMenu.png" alt="fondoMenu" />
+                <img className='fondo_menu' src={fondoMenu} alt="fondoMenu" />
                 </Grid>
 
                 <Grid sx={{display: {xs: 'grid', sm:'grid', md: 'none'} }}>
@@ -280,15 +281,15 @@ export const Inicio = ({drawerWidth = 0}) => {
                     <Typography variant='h3' sx={{fontWeight: 'bold',
                         letterSpacing: 0, mb: 3, mt:2,
                         fontSize:{md:'3rem', sm:'3rem', xs: 40},
-                        color:{xs:'tercery.main', sm:'tercery.main', md: 'black'}}}>
+                        color:{xs:'tercery.main', sm:'tercery.main', md: 'white'}}}>
                             PRIMERO MOVERSE BIEN <br /> LUEGO, FRECUENTEMENTE
                     </Typography>
                     
-                    <Typography variant='h6' sx={{fontWeight:'400', color:{xs:'white', sm:'white', md: 'black'}}} >
+                    <Typography variant='h6' sx={{fontWeight:'400', color:{xs:'white', sm:'white', md: 'white'}}} >
                         Sumate a la comunidad de entrenamiento <br /> que <b>SI</b> consigue sus objetivos.
                     </Typography>
                     <Button onClick={onSuscripcionNavigate} sx={{mt: 8, fontSize: 20, backgroundColor: '#ffd300', color: 'primary.main', ':hover': {backgroundColor:'#cca900', }}} size='large' variant='contained'>ASOCIATE AHORA</Button>
-                    <Grid item sx={{mt:12, }}>
+                    <Grid item sx={{mt:6, }}>
                         <IconButton sx={{color: {xs:'tercery.main', sm:'tercery.main', md:'#576F72'}}}>
                             <Instagram fontSize='large'/>
                         </IconButton>

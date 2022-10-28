@@ -42,12 +42,10 @@ export const RegisterPage = () => {
     
     setFormSubmited(true);
 
-    
-    
     if (!isFormValid) return;
     toast.success('Usuario creado')
     dispatch(startCreatingUserWithEmailPassword(formState))
-    onResetForm()
+    
 
   }
   

@@ -24,10 +24,6 @@ export const CrossfitTurnos = () => {
     const [isOpenResponsive, setIsOpenResponsive] = useState(false);
     const [isOpenResponsive2, setIsOpenResponsive2] = useState(false);
  
-    const activitiesLunMierVier = activities.filter(item => item.days === 'Lunes, Miercoles, Viernes')
-    const activitiesMarJue = activities.filter(item => item.days === 'Martes, Jueves')
-
-    
     const handleModal = () =>{
         isOpen !== true 
         ? setIsOpen(true) || setIsOpen2(false) 
@@ -51,6 +47,10 @@ export const CrossfitTurnos = () => {
         || setIsOpenResponsive(false) 
         : setIsOpenResponsive2(false);
     };
+
+    const activitiesCrossfit = activities.filter(item => item.name === 'crossfit' );
+    const activitiesLunMierVier = activitiesCrossfit.filter(item => item.days === 'Lunes, Miercoles, Viernes' );
+    const activitiesMarJue = activitiesCrossfit.filter(item => item.days === 'Martes, Jueves')
 
     const getData = (item) =>{
         

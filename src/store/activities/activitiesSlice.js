@@ -21,6 +21,10 @@ export const activitiesSlice = createSlice({
             
             const editActivity = state.activities.filter(item => item.id === id);
             editActivity[0].capacity--
+        },
+        cleanActivitiesData: (state, action ) =>{
+            state.activities = [],
+            state.isLoading  = false
         }
        
     }
@@ -29,7 +33,8 @@ export const activitiesSlice = createSlice({
 
 export const { 
     editSchedule,
-    setSchedule
+    setSchedule,
+    cleanActivitiesData,
     
 
 } = activitiesSlice.actions;

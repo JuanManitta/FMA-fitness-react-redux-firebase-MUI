@@ -1,11 +1,22 @@
 import { AccessAlarmsRounded } from '@mui/icons-material'
 import { Button, Divider, Grid, List, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { FmaLayout } from '../../../../layout/FmaLayout'
 import zumba from '../../../../../../canva/Iconos/turnos/zumba.png'
 import {schedule} from '../../../../../data/schedule'
+import { useDispatch, useSelector } from 'react-redux'
+import { startSettingNewActivity } from '../../../../../store/users/thunks'
+import { startEditingSchedule } from '../../../../../store/activities/thunks'
 
 export const ZumbaTurnos = () => {
+
+    const dispatch = useDispatch();
+    
+    const { userData } = useSelector(state => state.users);
+    const numbOfActivities = useMemo(() => userData.numberOfActivities >= 2, [userData.numberOfActivities]);
+    const { activities } = useSelector(state => state.activities);
+
+    const suscripted = userData.suscripted
 
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
@@ -13,21 +24,52 @@ export const ZumbaTurnos = () => {
     const [isOpenResponsive2, setIsOpenResponsive2] = useState(false);
 
     const handleModal = () =>{
-        isOpen !== true ? setIsOpen(true) || setIsOpen2(false) : setIsOpen(false);
+        isOpen !== true 
+        ? setIsOpen(true) 
+        || setIsOpen2(false) 
+        : setIsOpen(false);
     };
     const handleModal2 = () =>{
-        isOpen2 !== true ? setIsOpen2(true) || setIsOpen(false) : setIsOpen2(false);
+        isOpen2 !== true 
+        ? setIsOpen2(true) 
+        || setIsOpen(false) 
+        : setIsOpen2(false);
     };
     const handleModalResponsive = () =>{
-        isOpenResponsive !== true ? setIsOpenResponsive(true) || setIsOpenResponsive2(false) : setIsOpenResponsive(false);
+        isOpenResponsive !== true 
+        ? setIsOpenResponsive(true) 
+        || setIsOpenResponsive2(false) 
+        : setIsOpenResponsive(false);
     };
 
     const handleModalResponsive2 = () =>{
-        isOpenResponsive2 !== true ? setIsOpenResponsive2(true) || setIsOpenResponsive(false) : setIsOpenResponsive2(false);
+        isOpenResponsive2 !== true 
+        ? setIsOpenResponsive2(true) 
+        || setIsOpenResponsive(false) 
+        : setIsOpenResponsive2(false);
     };
-    const func = (item) =>{
-      console.log(item.time);
+
+    const activitiesZumba = activities.filter(item => item.name === 'zumba' );
+    const activitiesLunMierVier = activitiesZumba.filter(item => item.days === 'Lunes, Miercoles, Viernes' );
+    const activitiesMarJue = activitiesZumba.filter(item => item.days === 'Martes, Jueves')
+
+    const getData = (item) =>{
+        
+        const existingActivity = userData.activities.filter(act => act.id === item.id)
+        
+        if( !!existingActivity[0] === false ){
+
+            dispatch(startSettingNewActivity(item))
+            dispatch(startEditingSchedule(item))
+
+            toast.success('Horario Agendado')
+            
+        } else if (existingActivity[0].id === item.id) {
+            toast.error('Horario ya registrado')
+        }
+     
     }
+   
 
 
   return (
@@ -80,24 +122,31 @@ export const ZumbaTurnos = () => {
                     </Grid>
 
                     {
-                            schedule.map((item, index) => (
-                                <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}} key={index}>
-                        <Grid item sx={{p:0.5}}>{item.time}
-                        </Grid>
-                        <Grid item> 
-                        <Button
-                        onClick={() => func(item)} 
-                            variant="contained">
-                                Agendar
-                        </Button>
-                        </Grid>
-                    </Grid>
-
-                            ))
-
-                        }
+                      activitiesLunMierVier.map((item, index) =>(
+                      <Grid 
+                          key={index}
+                          container
+                          justifyContent="space-between"
+                          sx={{mb:2}}>
+                          <Grid item sx={{p:0.5}}>{item.time}</Grid>
+                          <Grid item> 
+                            <Button
+                                disabled={numbOfActivities || !suscripted || item.capacity <= 0} 
+                                onClick={ ()=> getData(item)} 
+                                variant="contained">
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'none' : 'block' }}}>
+                                        Aun no estas suscripto
+                                    </Typography>
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'block' : 'none' }}}>
+                                        Agendar
+                                    </Typography>
+                            </Button>
+                            </Grid>
+                      </Grid>    
+                      ))
+                    }
                     
                     
 
@@ -118,36 +167,32 @@ export const ZumbaTurnos = () => {
                         <Grid item sx={{p:0.5, mb: 2}}><AccessAlarmsRounded color="white" sx={{ borderRadius: 1}}/></Grid>
                         
                     </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>8:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>9:00 am</Grid>
-                        <Grid item> <Button variant="contained" >Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>10:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>11:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>12:00 pm</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
+                    {
+                      activitiesMarJue.map((item, index) =>(
+                      <Grid 
+                          key={index}
+                          container
+                          justifyContent="space-between"
+                          sx={{mb:2}}>
+                          <Grid item sx={{p:0.5}}>{item.time}</Grid>
+                          <Grid item> 
+                            <Button
+                                disabled={numbOfActivities || !suscripted || item.capacity <= 0} 
+                                onClick={ ()=> getData(item)} 
+                                variant="contained">
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'none' : 'block' }}}>
+                                        Aun no estas suscripto
+                                    </Typography>
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'block' : 'none' }}}>
+                                        Agendar
+                                    </Typography>
+                            </Button>
+                            </Grid>
+                      </Grid>    
+                      ))
+                    }
 
                 </Grid>
             </Grid>
@@ -170,40 +215,34 @@ export const ZumbaTurnos = () => {
                         <Grid item sx={{p:0.5, mb: 2}}><AccessAlarmsRounded color="white" sx={{ borderRadius: 1}}/></Grid>
                         
                     </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>8:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>9:00 am</Grid>
-                        <Grid item> <Button variant="contained" >Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>10:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>11:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>12:00 pm</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
+                    {
+                      activitiesLunMierVier.map((item, index) =>(
+                      <Grid 
+                          key={index}
+                          container
+                          justifyContent="space-between"
+                          sx={{mb:2}}>
+                          <Grid item sx={{p:0.5}}>{item.time}</Grid>
+                          <Grid item> 
+                            <Button
+                                disabled={numbOfActivities || !suscripted || item.capacity <= 0} 
+                                onClick={ ()=> getData(item)} 
+                                variant="contained">
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'none' : 'block' }}}>
+                                        Aun no estas suscripto
+                                    </Typography>
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'block' : 'none' }}}>
+                                        Agendar
+                                    </Typography>
+                            </Button>
+                            </Grid>
+                      </Grid>    
+                      ))
+                    }
 
-                </Grid>
-                
-                
+                </Grid>  
             </Grid>
 
             <Grid item xs={6}>
@@ -224,36 +263,32 @@ export const ZumbaTurnos = () => {
                         <Grid item sx={{p:0.5, mb: 2}}><AccessAlarmsRounded color="white" sx={{ borderRadius: 1}}/></Grid>
                         
                     </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>8:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>9:00 am</Grid>
-                        <Grid item> <Button variant="contained" >Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>10:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>11:00 am</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
-                    <Grid container
-                    justifyContent="space-between"
-                    sx={{mb:2}}>
-                        <Grid item sx={{p:0.5}}>12:00 pm</Grid>
-                        <Grid item> <Button variant="contained" disabled>Agendar</Button></Grid>
-                    </Grid>
+                    {
+                      activitiesMarJue.map((item, index) =>(
+                      <Grid 
+                          key={index}
+                          container
+                          justifyContent="space-between"
+                          sx={{mb:2}}>
+                          <Grid item sx={{p:0.5}}>{item.time}</Grid>
+                          <Grid item> 
+                            <Button
+                                disabled={numbOfActivities || !suscripted || item.capacity <= 0} 
+                                onClick={ ()=> getData(item)} 
+                                variant="contained">
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'none' : 'block' }}}>
+                                        Aun no estas suscripto
+                                    </Typography>
+                                    <Typography 
+                                        sx={{display:{xs: suscripted ? 'block' : 'none' }}}>
+                                        Agendar
+                                    </Typography>
+                            </Button>
+                            </Grid>
+                      </Grid>    
+                      ))
+                    }
 
                 </Grid>
             </Grid>

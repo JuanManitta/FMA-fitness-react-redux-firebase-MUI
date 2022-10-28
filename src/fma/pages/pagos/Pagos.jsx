@@ -12,7 +12,11 @@ import { startSuscribingUser } from "../../../store/users/thunks"
 
 export const Pagos = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const { userData } = useSelector(state => state.users )
+
+  const suscripted = userData.suscripted 
+
   const onPayButton = () =>{
     toast.success('Pago exitoso, bienvenido a FMA')
     dispatch(startSuscribingUser());
@@ -311,7 +315,17 @@ export const Pagos = () => {
                       <PayButton 
                         onClick={onPayButton}
                         variant="contained" 
-                        sx={{color:'primary.main'}}>pagar
+                        disabled={suscripted}
+                        sx={{color:'primary.main'}}>
+                          <Typography fontSize={20} 
+                            sx={{display: {xs: suscripted === true 
+                              ? 'none' 
+                              : 'block'}}}> Pagar</Typography>
+
+                          <Typography fontSize={20} 
+                            sx={{display: {xs: suscripted === true 
+                              ? 'block' 
+                              : 'none'}}}> Ya estas suscripto</Typography>
                         </PayButton>
                     </Grid>
 
