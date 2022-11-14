@@ -1,5 +1,5 @@
 import { AddCard, CalendarMonth, FitnessCenter, FormatListBulleted, Home, LoginOutlined, MenuOutlined, MilitaryTech } from '@mui/icons-material'
-import { Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import { Button, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { startLogout } from '../../store/auth/thunks';
@@ -47,6 +47,12 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
     };
     const onSuscripcionNavigate = () =>{
         navigate('/suscripcion', {
+            replace: true
+        });
+        
+    };
+    const navigateCuenta = () =>{
+        navigate('/cuenta', {
             replace: true
         });
         
@@ -170,15 +176,17 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
      <Grid container
      justifyContent="space-between"
      sx={{display:{xs: 'flex', sm: 'flex', md: 'flex'}}}>
+         <Button onClick={navigateCuenta}>
          <Typography
              sx={{position: 'fixed',
+             fontSize: 14,
              bottom: 18,
-             marginLeft:'16px',
+             marginLeft:'18px',
              color: 'tercery.main',
-          
          }}>
                  {displayName}
              </Typography>
+            </Button>
 
            <IconButton
                onClick={onLogout} 

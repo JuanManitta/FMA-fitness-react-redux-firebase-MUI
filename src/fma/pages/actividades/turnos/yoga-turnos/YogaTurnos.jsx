@@ -111,6 +111,7 @@ export const YogaTurnos = () => {
                     {
                         activitiesLunMierVier.map((item, index) => (
                          <Grid container
+                         key={index}
                          justifyContent="space-between"
                          sx={{mb:2}}>
                             <Grid item 
@@ -155,6 +156,7 @@ export const YogaTurnos = () => {
                     {
                         activitiesMarJue.map((item, index) => (
                          <Grid container
+                         key={index}
                          justifyContent="space-between"
                          sx={{mb:2}}>
                             <Grid item 
@@ -204,6 +206,7 @@ export const YogaTurnos = () => {
                     {
                         activitiesLunMierVier.map((item, index) => (
                          <Grid container
+                         key={index}
                          justifyContent="space-between"
                          sx={{mb:2}}>
                             <Grid item 
@@ -255,6 +258,7 @@ export const YogaTurnos = () => {
                     {
                         activitiesMarJue.map((item, index) => (
                          <Grid container
+                         key={index}
                          justifyContent="space-between"
                          sx={{mb:2}}>
                             <Grid item 

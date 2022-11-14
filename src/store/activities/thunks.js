@@ -1,7 +1,9 @@
 import { collection, doc, getDoc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
 import { loadSchedule } from "../../helpers/loadSchedule";
-import { editSchedule, setSchedule } from "./activitiesSlice";
+import { startEditingActivtiesList } from "../users/thunks";
+import { deleteActivityUser } from "../users/usersSlice";
+import { deleteActivity, editSchedule, setSchedule } from "./activitiesSlice";
 
 
 export const startSetingSchedule = () =>{
@@ -23,6 +25,17 @@ export const startEditingSchedule = (item) =>{
 
         dispatch(editSchedule(item))
         dispatch(startSetingSchedule(item))
+   
+    }
+};
+export const startDeletingActivity = (item) =>{
+    return async(dispatch) =>{
+
+        dispatch(deleteActivity(item))
+        dispatch(startSetingSchedule(item))
+        dispatch(deleteActivityUser(item))
+        dispatch(startEditingActivtiesList())
+        
    
     }
 };

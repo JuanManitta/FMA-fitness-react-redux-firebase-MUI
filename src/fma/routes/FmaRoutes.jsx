@@ -16,6 +16,7 @@ import {
   ZumbaTurnos,  
   Inicio,
   Pagos,
+  Cuenta
 } from "../pages/"
 
 export const FmaRoutes = () => {
@@ -32,6 +33,7 @@ export const FmaRoutes = () => {
         <Route path="equipo" element={<Equipo/>} />
         <Route path="suscripcion" element={<Suscripcion/>} />
         <Route path="inicio" element={<Inicio/>} />
+        <Route path="cuenta" element={<Cuenta/>} />
 
         {/* Rutas de Actividades */}
         <Route path="calistenia" element={<Calistenia/>} />

@@ -57,6 +57,11 @@ export const Inicio = ({drawerWidth = 0}) => {
             replace: true
         });
     };
+    const handleNavigateMiCuenta = () =>{
+        navigate('/cuenta', {
+            replace: true
+        });
+    };
     
 
     const handleDrawerOpen = () =>{
@@ -241,14 +246,18 @@ export const Inicio = ({drawerWidth = 0}) => {
             <Grid container
             justifyContent="space-between"
             sx={{display:{xs: 'flex', sm: 'flex', md: 'flex'}}}>
+                
+                <Button onClick={handleNavigateMiCuenta}>
                 <Typography
                     sx={{position: 'fixed',
+                    fontSize: 14,
                     bottom: 18,
                     ml:'16px',
                     color: 'tercery.main' 
                 }}>
                     {displayName}
                     </Typography>
+                </Button>
 
                 <IconButton 
                     onClick={onLogout}

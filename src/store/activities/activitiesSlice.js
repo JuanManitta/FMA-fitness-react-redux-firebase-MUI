@@ -20,7 +20,17 @@ export const activitiesSlice = createSlice({
             const id = activitySelected.id
             
             const editActivity = state.activities.filter(item => item.id === id);
+            if ( editActivity[0].capacity >= 0)
             editActivity[0].capacity--
+        },
+        deleteActivity: ( state, action ) =>{
+            const activitySelected = action.payload;
+            const id = activitySelected.id
+            
+            const editActivity = state.activities.filter(item => item.id === id);
+            if ( editActivity[0].capacity >= 10 ) return;
+
+            editActivity[0].capacity++
         },
         cleanActivitiesData: (state, action ) =>{
             state.activities = [],
@@ -33,6 +43,7 @@ export const activitiesSlice = createSlice({
 
 export const { 
     editSchedule,
+    deleteActivity,
     setSchedule,
     cleanActivitiesData,
     
