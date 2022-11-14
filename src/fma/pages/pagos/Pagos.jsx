@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { startSuscribingUser } from "../../../store/users/thunks"
+import logoFmaBlanco from '../../../../canva/Iconos/LOGOFMABLANCO.png'
 
 
 
@@ -81,7 +82,7 @@ export const Pagos = () => {
                             <Grid container sx={{backgroundColor:'white', width:'190px', borderRadius:3, p:2, boxShadow:4}}>
 
                               <Grid item xs={4}> 
-                                <img className="logo_fma_pagos" src="./canva/Iconos/LOGOFMABLANCO.png" alt="" />
+                                <img className="logo_fma_pagos" src={logoFmaBlanco} alt="" />
                               </Grid>
                             </Grid>
 

@@ -2,6 +2,9 @@ import { Grid } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { FmaLayout } from "../../layout/FmaLayout"
 import yoga from '../../../../canva/Iconos/yoga.png'
+import crossfit from '../../../../canva/Iconos/crossfit.png'
+import calistenia from '../../../../canva/Iconos/calistenia.png'
+import zumba from '../../../../canva/Iconos/zumba.png'
 
 
 export const Actividades = () => {
@@ -53,13 +56,13 @@ export const Actividades = () => {
       <img className="img_activity" src={yoga} alt="" />
     </Grid>
     <Grid onClick={navigateToZumba} item xs={12} sm={12} md={6} sx={{boxShadow: 9, padding: 0.5 }}>
-      <img className="img_activity" src="./canva/Iconos/zumba.png" alt="" />    
+      <img className="img_activity" src={zumba} alt="" />    
     </Grid>
     <Grid onClick={navigateToCrossfit} item xs={12} sm={12} md={6} sx={{boxShadow: 9, padding: 0.5 }}>
-      <img className="img_activity" src="./canva/Iconos/crossfit.png" alt="" />   
+      <img className="img_activity" src={crossfit} alt="" />   
     </Grid>
     <Grid item xs={12} sm={12} md={6} sx={{boxShadow: 9, padding: 0.5 }}>
-      <img onClick={navigateToCalistenia} className="img_activity" src="./canva/Iconos/calistenia.png" alt="" />    
+      <img onClick={navigateToCalistenia} className="img_activity" src={calistenia} alt="" />    
     </Grid>
   </Grid>
   

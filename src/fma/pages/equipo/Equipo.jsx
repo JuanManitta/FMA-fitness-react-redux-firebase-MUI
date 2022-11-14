@@ -1,6 +1,9 @@
 import { Grid, Typography } from "@mui/material"
-import { Box } from "@mui/system"
 import { FmaLayout } from "../../layout/FmaLayout"
+import crossfitEquipo from '../../../../canva/crossfitEquipo.png'
+import yogaEquipo from '../../../../canva/yogaEquipo.png'
+import calisteniaEquipo from '../../../../canva/calisteniaEquipo.png'
+import zumbaEquipo from '../../../../canva/zumbaEquipo.png'
 
 export const Equipo = () => {
 
@@ -39,7 +42,7 @@ export const Equipo = () => {
             <Grid container
             justifyContent="center"
             alignContent="center">
-              <img src="./canva/Iconos/crossfitEquipo.png" className="equipo_image" alt="" />
+              <img src={crossfitEquipo} className="equipo_image" alt="" />
             </Grid>
 
           </Grid>
@@ -47,7 +50,7 @@ export const Equipo = () => {
             <Grid container
             justifyContent="center"
             alignContent="center">
-              <img src="./canva/Iconos/yogaEquipo.png" className="equipo_image" alt="" />
+              <img src={yogaEquipo} className="equipo_image" alt="" />
             </Grid>
 
           </Grid>
@@ -61,7 +64,7 @@ export const Equipo = () => {
             <Grid container
             justifyContent="center"
             alignContent="center">
-              <img src="./canva/Iconos/zumbaEquipo.png" className="equipo_image" alt="" />
+              <img src={zumbaEquipo} className="equipo_image" alt="" />
             </Grid>
 
           </Grid>
@@ -69,7 +72,7 @@ export const Equipo = () => {
             <Grid container
             justifyContent="center"
             alignContent="center">
-              <img src="./canva/Iconos/calisteniaEquipo.png" className="equipo_image" alt="" />
+              <img src={calisteniaEquipo} className="equipo_image" alt="" />
             </Grid>
 
           </Grid>

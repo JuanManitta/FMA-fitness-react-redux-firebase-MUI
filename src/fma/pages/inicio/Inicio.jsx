@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { startLogout } from '../../../store/auth/thunks'
 import  fondoMenu  from '../../../../canva/Iconos/fondoMenu.png'
+import  fondoMenuResponsive  from '../../../../canva/Iconos/fondoMenuResponsive.png'
+import  logoFma  from '../../../../canva/Iconos/LOGOFMA.png'
 
 export const Inicio = ({drawerWidth = 0}) => {
 
@@ -96,7 +98,7 @@ export const Inicio = ({drawerWidth = 0}) => {
 
             <Grid item
             sx={{display: {sx:'flex', sm: 'none', md: 'none' }}}>
-                <img className="logo-navbar" src="./canva/Iconos/LOGOFMA.png" alt="" />
+                <img className="logo-navbar" src={logoFma} alt="" />
             </Grid>
 
             <Grid item
@@ -145,7 +147,7 @@ export const Inicio = ({drawerWidth = 0}) => {
                             <MenuOutlined/>
                     </IconButton>
                     <IconButton>
-                        <img className='logo_sidebar_menu' src="./canva/Iconos/LOGOFMA.png" alt="" />
+                        <img className='logo_sidebar_menu' src={logoFma} alt="" />
                     </IconButton>
                 </Grid>
             </Toolbar>
@@ -283,7 +285,7 @@ export const Inicio = ({drawerWidth = 0}) => {
                 </Grid>
 
                 <Grid sx={{display: {xs: 'grid', sm:'grid', md: 'none'} }}>
-                <img className='fondo_menu_responsive' src="./canva/Iconos/fondoMenuResponsive.png" alt="fondoMenu" />
+                <img className='fondo_menu_responsive' src={fondoMenuResponsive} alt="fondoMenu" />
                 </Grid>
                     <Grid item xs={12} sm={12} md={7} sx={{position: 'absolute', p:{xs:2,md:8,sm:8} }}>
                     <FormatQuote fontSize='large' sx={{color:{xs:'tercery.main', sm:'tercery.main', md: 'black'}}}/>
