@@ -1,6 +1,6 @@
 export * from './ranking'
 export * from './actividades'
-export * from './calendario'
+export * from './contacto'
 export * from './FmaPage'
 export * from './Equipo'
 export * from './Suscripciones'

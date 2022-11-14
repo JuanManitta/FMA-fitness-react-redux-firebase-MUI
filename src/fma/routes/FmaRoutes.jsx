@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { 
-  Ranking, 
-  Calendario, 
+  Contacto, 
   Actividades, 
   Suscripcion,
   FmaPage, 
@@ -27,13 +26,12 @@ export const FmaRoutes = () => {
         <Route path="/*" element={<Navigate to='/'/>} />
 
         {/* Rutas principales */}
-        <Route path="ranking" element={<Ranking/>} />
-        <Route path="calendario" element={<Calendario/>} />
+        <Route path="cuenta" element={<Cuenta/>} />
+        <Route path="contacto" element={<Contacto/>} />
         <Route path="actividades" element={<Actividades/>} />
         <Route path="equipo" element={<Equipo/>} />
         <Route path="suscripcion" element={<Suscripcion/>} />
         <Route path="inicio" element={<Inicio/>} />
-        <Route path="cuenta" element={<Cuenta/>} />
 
         {/* Rutas de Actividades */}
         <Route path="calistenia" element={<Calistenia/>} />

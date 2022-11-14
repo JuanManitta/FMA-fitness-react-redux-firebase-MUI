@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { FmaLayout } from "../../layout/FmaLayout"
 
-export const Calendario = () => {
+export const Contacto = () => {
 
   const [isOpenQuestion, setIsOpenQuestion] = useState(false)
   const [isOpenQuestion2, setIsOpenQuestion2] = useState(false)

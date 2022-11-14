@@ -1,4 +1,4 @@
-import { AddCard, CalendarMonth, Email, FitnessCenter, FmdGood, FormatListBulleted, FormatQuote, Home, Instagram, LibraryBooks, LoginOutlined, Mail, MenuOutlined, MilitaryTech, Phone, Security, Twitter, WhatsApp } from '@mui/icons-material'
+import { AddCard, CalendarMonth, ContactEmergency, ContactMail, ContactMailOutlined, Email, FitnessCenter, FmdGood, FormatListBulleted, FormatQuote, Home, Instagram, LibraryBooks, LoginOutlined, Mail, MenuOutlined, MilitaryTech, Person, Phone, Security, Twitter, WhatsApp } from '@mui/icons-material'
 import {  AppBar, Button, Container, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
@@ -34,13 +34,13 @@ export const Inicio = ({drawerWidth = 0}) => {
             replace: true
         });
     };
-    const onRankingNavigate = () =>{
-        navigate('/ranking', {
+    const onCuentaNavigate = () =>{
+        navigate('/cuenta', {
             replace: true
         });
     };
-    const onCalendarioNavigate = () =>{
-        navigate('/calendario', {
+    const onContactoNavigate = () =>{
+        navigate('/contacto', {
             replace: true
         });
     };
@@ -186,21 +186,7 @@ export const Inicio = ({drawerWidth = 0}) => {
                         </Grid>
                     </ListItemButton>
                 </ListItem>
-                <ListItem 
-                    disablePadding
-                    sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main' }}}
-                    >
-                    <ListItemButton
-                    onClick={onRankingNavigate} 
-                    >
-                        <ListItemIcon>
-                            <MilitaryTech className='icon'/>
-                        </ListItemIcon>
-                        <Grid container color="white">
-                            <ListItemText primary='RANKING' />
-                        </Grid>
-                    </ListItemButton>
-                </ListItem>
+                
                 <ListItem 
                     disablePadding
                     sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main' }}}
@@ -216,19 +202,7 @@ export const Inicio = ({drawerWidth = 0}) => {
                         </Grid>
                     </ListItemButton>
                 </ListItem>
-                <ListItem 
-                    disablePadding
-                    sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
-                    >
-                    <ListItemButton onClick={onCalendarioNavigate}>
-                        <ListItemIcon>
-                            <CalendarMonth className='icon'/>
-                        </ListItemIcon>
-                        <Grid container color="white">
-                            <ListItemText primary='CALENDARIO'/>
-                        </Grid>
-                    </ListItemButton>
-                </ListItem>
+                
                 <ListItem 
                     disablePadding
                     sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
@@ -239,7 +213,35 @@ export const Inicio = ({drawerWidth = 0}) => {
                             <AddCard className='icon'/>
                         </ListItemIcon>
                         <Grid container color="white">
-                            <ListItemText primary='SUSCRIBIRME'/>
+                            <ListItemText primary='ASOCIARME'/>
+                        </Grid>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem 
+                    disablePadding
+                    sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main' }}}
+                    >
+                    <ListItemButton
+                    onClick={onCuentaNavigate} 
+                    >
+                        <ListItemIcon>
+                            <Person className='icon'/>
+                        </ListItemIcon>
+                        <Grid container color="white">
+                            <ListItemText primary='CUENTA' />
+                        </Grid>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem 
+                    disablePadding
+                    sx={{mt: '12px', ':hover': {backgroundColor: 'secondary.main'} }}
+                    >
+                    <ListItemButton onClick={onContactoNavigate}>
+                        <ListItemIcon>
+                            <ContactMailOutlined className='icon'/>
+                        </ListItemIcon>
+                        <Grid container color="white">
+                            <ListItemText primary='CONTACTO'/>
                         </Grid>
                     </ListItemButton>
                 </ListItem>

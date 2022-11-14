@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@mui/material"
 import { FmaLayout } from "../../layout/FmaLayout"
-import crossfitEquipo from '../../../../canva/crossfitEquipo.png'
-import yogaEquipo from '../../../../canva/yogaEquipo.png'
-import calisteniaEquipo from '../../../../canva/calisteniaEquipo.png'
-import zumbaEquipo from '../../../../canva/zumbaEquipo.png'
+import crossfitEquipo from '../../../../canva/Iconos/crossfitEquipo.png'
+import yogaEquipo from '../../../../canva/Iconos/yogaEquipo.png'
+import calisteniaEquipo from '../../../../canva/Iconos/calisteniaEquipo.png'
+import zumbaEquipo from '../../../../canva/Iconos/zumbaEquipo.png'
 
 export const Equipo = () => {
 
