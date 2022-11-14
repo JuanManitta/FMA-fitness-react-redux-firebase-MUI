@@ -3,6 +3,7 @@ import { Button, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon,
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { startLogout } from '../../store/auth/thunks';
+import logoFma from '../../../canva/Iconos/LOGOFMA.png';
 
 export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
 
@@ -76,7 +77,7 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
                     <MenuOutlined/>
             </IconButton>
             <Grid sx={{mr: {xs: 3, sm: 0, md: 0 }}}>
-                <img className='logo_sidebar' src="./canva/Iconos/LOGOFMA.png" alt="" />
+                <img className='logo_sidebar' src={logoFma} alt="" />
             </Grid>
         </Grid>
           

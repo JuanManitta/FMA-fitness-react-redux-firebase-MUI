@@ -2,6 +2,7 @@ import { Button, Divider, Grid, Typography } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { FmaLayout } from '../../../layout/FmaLayout'
+import calistenia from '../../../../../canva/Iconos/turnos/Calistenia.png'
 
 export const Calistenia = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const Calistenia = () => {
             xs={12}
             md={4} 
             >
-             <img className='img_activities' src="./canva/Iconos/turnos/Calistenia.png" alt="" />
+             <img className='img_activities' src={calistenia} alt="calistenia" />
              <Typography sx={{mt:3}}>
                 <li><b>Profesor:</b> Marcos Antonini</li>
                 <li><b>Cupo maximo:</b> 5 personas</li>

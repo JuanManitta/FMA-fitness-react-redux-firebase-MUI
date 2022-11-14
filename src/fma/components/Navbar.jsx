@@ -2,6 +2,7 @@ import { LoginOutlined, MenuOutlined } from "@mui/icons-material"
 import { AppBar, Grid, IconButton, Toolbar } from "@mui/material"
 import { useDispatch } from "react-redux";
 import { startLogout } from "../../store/auth/thunks";
+import logoFma from "../../../canva/Iconos/LOGOFMA.png";
 
 export const Navbar = ({ drawerWidth = 0,isDrawerOpen, setIsDrawerOpen }) => {
     const dispatch = useDispatch()
@@ -35,7 +36,7 @@ export const Navbar = ({ drawerWidth = 0,isDrawerOpen, setIsDrawerOpen }) => {
 
             <Grid item
             sx={{display: {sx:'flex', sm: 'none', md: 'none' }}}>
-                <img className="logo-navbar" src="./canva/Iconos/LOGOFMA.png" alt="" />
+                <img className="logo-navbar" src={logoFma} alt="logoFma" />
             </Grid>
 
             <Grid item

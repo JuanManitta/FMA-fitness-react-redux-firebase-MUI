@@ -1,6 +1,7 @@
 import { Button, Divider, Grid, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { FmaLayout } from "../../../layout/FmaLayout"
+import yoga from '../../../../../canva/Iconos/turnos/yoga.png'
 
 export const Yoga = () => {
 
@@ -23,7 +24,7 @@ export const Yoga = () => {
             xs={12}
             md={4} 
             >
-             <img className='img_activities' src="./canva/Iconos/turnos/yoga.png" alt="" />
+             <img className='img_activities' src={yoga} alt="yoga" />
              <Typography sx={{mt:3}}>
                 <li><b>Profesor:</b> Camila Perez</li>
                 <li><b>Cupo maximo:</b> 20 personas</li>

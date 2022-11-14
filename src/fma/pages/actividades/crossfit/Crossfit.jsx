@@ -1,6 +1,7 @@
 import { Button, Divider, Grid, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom";
 import { FmaLayout } from "../../../layout/FmaLayout"
+import crossfit from '../../../../../canva/Iconos/turnos/crossfit.png'
 
 export const Crossfit = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const Crossfit = () => {
             xs={12}
             md={4} 
             >
-             <img className='img_activities' src="./canva/Iconos/turnos/crossfit.png" alt="" />
+             <img className='img_activities' src={crossfit} alt="crossfit" />
              <Typography sx={{mt:3}}>
                 <li><b>Profesor:</b> Juan Manitta</li>
                 <li><b>Cupo maximo:</b> 12 personas</li>

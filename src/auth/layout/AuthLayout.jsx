@@ -1,6 +1,8 @@
 
 import { LockOpenRounded } from "@mui/icons-material"
 import { Box, Grid, Typography } from "@mui/material"
+import logoFmaBlanco from '../../../canva/Iconos/LOGOFMABLANCO.png'
+import logoFma from '../../../canva/Iconos/LOGOFMA.png'
 
 
 
@@ -33,7 +35,7 @@ export const AuthLayout = ({children, title = ''}) => {
           justifyContent="center" 
           sx={{display: 'flex', flexDirection: 'column'}}>
 
-          <img className='logo_img_resp' src="/canva/Iconos/LOGOFMABLANCO.png" alt="" />
+          <img className='logo_img_resp' src={logoFmaBlanco} alt="logoFma" />
 
           <LockOpenRounded sx={{mb: 2, mt: {xs: 4}}}/>
           <Typography className="text-center" variant="h5" sx={{mb: 6}}>
@@ -52,7 +54,7 @@ export const AuthLayout = ({children, title = ''}) => {
       justifyContent="center"
       sx={{ minHeight: '100vh', width: '100%', backgroundColor: 'primary.main', display:{ xs: 'none', sm: 'flex'  }}}
       >
-        <img className='logo_img' src="/canva/Iconos/LOGOFMA.png" alt="" />
+        <img className='logo_img' src={logoFma} alt="logoFma" />
       </Grid>
 
       

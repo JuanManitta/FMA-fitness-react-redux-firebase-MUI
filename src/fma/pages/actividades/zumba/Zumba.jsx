@@ -1,6 +1,8 @@
 import { Button, Divider, Grid, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { FmaLayout } from "../../../layout/FmaLayout"
+import zumba from '../../../../../canva/Iconos/turnos/zumba.png'
+
 
 export const Zumba = () => {
 
@@ -23,7 +25,7 @@ export const Zumba = () => {
             xs={12}
             md={4} 
             >
-             <img className='img_activities' src="./canva/Iconos/turnos/zumba.png" alt="" />
+             <img className='img_activities' src={zumba} alt="zumba" />
              <Typography sx={{mt:3}}>
                 <li><b>Profesor:</b> Marina Mazzocchini</li>
                 <li><b>Cupo maximo:</b> 15</li>
