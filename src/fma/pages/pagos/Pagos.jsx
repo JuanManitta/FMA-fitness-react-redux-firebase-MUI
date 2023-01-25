@@ -45,11 +45,11 @@ export const Pagos = () => {
 
   return (
     <Box component='main'
-        sx={{ flexGrow: 1, backgroundColor: '#F3F5FA', }}>
+        sx={{ backgroundColor: '#F3F5FA', }}>
           <Grid 
             className='animate__animated animate__fadeIn animate__faster'  
             container
-            sx={{ minHeight: '100vh', backgroundColor: '#F3F5FA', display:{xs:'grid', sm:'grid', md:'flex'} }}>
+            sx={{ backgroundColor: '#F3F5FA', display:{xs:'grid', sm:'grid', md:'flex'} }}>
 
               <Grid 
                 item xs={12} sm={12} md={6}>
@@ -94,7 +94,7 @@ export const Pagos = () => {
                         </Grid>
                         <Grid item sx={{display:'flex', justifyContent:'space-between'}}>
                           <Typography marginLeft={5} marginTop={2} fontSize={22} color={'white'} letterSpacing={1.1} fontWeight={'bolder'}>
-                            Importe a abonar
+                            Importe a abonar (Ficticio)
                           </Typography>
                           <Typography marginLeft={5} marginTop={2} fontSize={22} color={'white'} letterSpacing={1.1} fontWeight={'bolder'}>
                             $123.500
@@ -207,7 +207,7 @@ export const Pagos = () => {
                   
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography variant="h5" marginBottom={3}>Informacion Personal</Typography>
+                  <Typography variant="h5" marginBottom={3}>Informacion Personal</Typography> <Typography fontSize={12} fontWeight={'bold'}>*No hace falta rellenar los datos, precionar el botón</Typography>
                   <Grid 
                     justifyContent="center"
                     alignContent="center"
@@ -322,7 +322,6 @@ export const Pagos = () => {
                             sx={{display: {xs: suscripted === true 
                               ? 'none' 
                               : 'block'}}}> Pagar</Typography>
-
                           <Typography fontSize={20} 
                             sx={{display: {xs: suscripted === true 
                               ? 'block' 

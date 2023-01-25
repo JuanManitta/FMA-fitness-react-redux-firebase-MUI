@@ -23,9 +23,10 @@
 }
 .portada_img{
     width: 160px;
+    padding-top: 1.5rem;
 }
 .equipo_image{
-    width: 330px;
+    width: 100%;
     /* transform: translate(-50%, -50%);
     top: 50%;
     left: 50%; */
@@ -79,3 +80,10 @@
     }
     
 } */
+
+@media (max-width: 600px){
+    .portada_img{
+        width: 130px;
+    }
+    
+}

@@ -18,13 +18,12 @@ export const Actividades = ({handleShowActividades}) => {
 
   return (
     <Grid item
-        xs={7}
-        sx={{display:{ xs:handleShowActividades === false ? 'none' : 'block'}}}>
+        xs={12} md={7}
+        sx={{display:{ xs:handleShowActividades === false ? 'none' : 'block'}, p:5}}>
           <Typography 
-            variant='h3'
             sx={{display: {xs: numberOfActivities === 0 ? 'block' : 'none'}}}
             >
-              AÚN NO HAY ACTIVIDADES AGENDADAS :(
+              AÚN NO HAY ACTIVIDADES AGENDADAS
           </Typography>
 
           {

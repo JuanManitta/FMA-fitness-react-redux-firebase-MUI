@@ -18,8 +18,8 @@ export const Suscription = ({handleShowSuscription}) => {
 
   return (
     <Grid item
-        xs={7}
-        sx={{display:{ xs:handleShowSuscription === false ? 'none' : 'block'}}}>
+        xs={12}
+        sx={{display:{ xs:handleShowSuscription === false ? 'none' : 'block'}, p: 5}}>
           
           <Grid container
           sx={{display:'flex'}}>
@@ -29,50 +29,51 @@ export const Suscription = ({handleShowSuscription}) => {
               
               <Grid item
               sx={{mb:2}}>
-                <Typography sx={{opacity: 0.4}}>Estado de suscripcion</Typography>
+                <Typography sx={{opacity: 0.4, fontSize: {xs: 14, sm: 16}}}>Estado de suscripcion</Typography>
               </Grid>
               <Divider sx={{backgroundColor:'black', opacity:'0.1'}}  variant='fullWidth'/>
               <Grid item
               sx={{mb:2, mt:1.5}}>
-                <Typography sx={{opacity: 0.4}}>Fecha de inicio</Typography>
+                <Typography sx={{opacity: 0.4, fontSize: {xs: 14, sm: 16}}}>Fecha de inicio</Typography>
               </Grid>
               <Divider sx={{backgroundColor:'black', opacity:'0.1'}}  variant='fullWidth'/>
               <Grid item
               sx={{mb:2, mt:1.5}}>
-                <Typography sx={{opacity: 0.4}}>Proximo vencimiento</Typography>
+                <Typography sx={{opacity: 0.4, fontSize: {xs: 14, sm: 16}}}>Proximo vencimiento</Typography>
               </Grid>
               <Divider sx={{backgroundColor:'black', opacity:'0.1'}}  variant='fullWidth'/>
               <Grid item
               sx={{mb:2, mt:1.5}}>
-                <Typography sx={{opacity: 0.4}}>Nivel de suscripcion</Typography>
+                <Typography sx={{opacity: 0.4, fontSize: {xs: 14, sm: 16}}}>Nivel de suscripcion</Typography>
               </Grid>
               <Divider sx={{backgroundColor:'black', opacity:'0.1'}}  variant='fullWidth'/>
               
             </Grid>
              <Grid item
-             xs={4}>
+             xs={6}>
                <Grid item
                sx={{mb:2}}>
-                 <Typography sx={{textAlign:'right'}}>{userData.suscripted === true ? 'Activa': 'Inactiva'}</Typography>
+                 <Typography sx={{textAlign:'right', fontSize: {xs: 14, sm: 16}}}>{userData.suscripted === true ? 'Activa': 'Inactiva'}</Typography>
                </Grid>
                <Divider sx={{backgroundColor:'black', opacity:'0.1'}} variant='fullWidth'/>
                <Grid item
                sx={{mb:2, mt:1.5}}>
-                 <Typography sx={{textAlign:'right'}}>{userData.suscripted === true ? '10/10/2022': 'Sin Suscripción'}</Typography>
+                 <Typography sx={{textAlign:'right', fontSize: {xs: 14, sm: 16}}}>{userData.suscripted === true ? '10/10/2022': 'Sin Suscripción'}</Typography>
                </Grid>
                <Divider sx={{backgroundColor:'black', opacity:'0.1'}} variant='fullWidth'/>
                <Grid item
                sx={{mb:2, mt:1.5}}>
-                 <Typography sx={{textAlign:'right'}}>{userData.suscripted === true ? '10/11/2022': 'Sin Suscripción'}</Typography>
+                 <Typography sx={{textAlign:'right', fontSize: {xs: 14, sm: 16}}}>{userData.suscripted === true ? '10/11/2022': 'Sin Suscripción'}</Typography>
                </Grid>
                <Divider sx={{backgroundColor:'black', opacity:'0.1'}} variant='fullWidth'/>
                <Grid item
                sx={{mb:2, mt:1.5}}>
-                 <Typography sx={{textAlign:'right'}}>{userData.suscripted === true ? 'Suscripción total': 'Sin suscripción'}</Typography>
+                 <Typography sx={{textAlign:'right', fontSize: {xs: 14, sm: 16}}}>{userData.suscripted === true ? 'Suscripción total': 'Sin suscripción'}</Typography>
                </Grid>
                <Divider sx={{backgroundColor:'black', opacity:'0.1'}} variant='fullWidth'/>  
              </Grid>
          </Grid>
+
          <Grid item
          sx={{mt:6}}>
           <Button

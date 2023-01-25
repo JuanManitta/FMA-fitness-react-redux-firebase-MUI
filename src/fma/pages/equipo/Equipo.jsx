@@ -13,15 +13,15 @@ export const Equipo = () => {
 <FmaLayout>
     <Grid
       container
-      sx={{ minHeight: 'calc(100vh-120px)', backgroundColor: '#F3F5FA', display: 'gird', gridTemplateColumns:'repeat(2,1fr)',gap: 1 }}>
+      sx={{ minHeight: 'calc(100vh-120px)', backgroundColor: '#F3F5FA', p: 4 }}>
 
-  <Grid item xs={4}>
+  <Grid item xs={12}>
     <Grid 
       container
       alignContent="center" 
-      sx={{minHeight:'100vh', display:'grid',}}>
+      sx={{ display:'grid',}}>
         
-        <Grid item xs={12} sx={{backgroundColor: '#293B5F', p:2, opacity: 0.7, boxShadow:10}}>
+        <Grid item xs={12} sx={{backgroundColor: '#293B5F', p:2, opacity: 0.7, boxShadow:10, mb: 4, mt: 8}}>
           <Typography textAlign={'center'} color={'white'} variant="h4">CONOCÉ AL <br /> EQUIPO <b>FMA</b> </Typography>
         </Grid>
         <Grid item xs={12} sx={{ p:2}}>
@@ -30,11 +30,11 @@ export const Equipo = () => {
     </Grid>
   </Grid>
 
-  <Grid item xs={7}>
+  <Grid item xs={12}>
   <Grid 
       container
       alignContent="center" 
-      sx={{minHeight:'90vh', display:'grid', gap:10}}>
+      sx={{ display:'grid', gap: 4, mt: 6}}>
 
         <Grid item xs={12} sx={{display: 'grid', gridTemplateColumns:'repeat(2,1fr)', minHeight:'30vh'}}>
 

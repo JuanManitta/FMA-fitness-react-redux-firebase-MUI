@@ -81,7 +81,7 @@ export const Suscripcion = () => {
                 sx={{backgroundColor: 'primary.main', mb: 3, width: '80%'}}>
                 <Typography sx={{fontWeight: 'bold', color: 'white', ml: 2, fontSize: 45, boxShadow:4}} >TU PLAN</Typography>
               </Grid>
-                <Typography sx={{color: 'primary.main', textAlign:'justify' }} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque optio esse molestias provident, earum iste doloribus! Et ducimus error eveniet optio repudiandae laudantium blanditiis laborum vero. Tempore reiciendis eos commodi.</Typography>
+                <Typography sx={{color: 'primary.main', textAlign:'justify' }} > <b> *ESTO ES ES UN SIMULACRO DE SUSCRIPCION </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque optio esse molestias provident, earum iste doloribus! Et ducimus error eveniet optio repudiandae laudantium blanditiis laborum vero. Tempore reiciendis eos commodi.</Typography>
               
               <Grid container
               spacing={2}

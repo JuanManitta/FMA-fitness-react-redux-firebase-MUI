@@ -41,14 +41,14 @@ export const LoginPage = () => {
   
   return (
     <AuthLayout title='Login'>
-      { status === 'checking' ? <Grid container justifyContent="center" alignContent="center"><CircularProgress/></Grid> :
+      { status === 'checking' ? <Grid display='flex' container justifyContent="center" alignContent="center"><CircularProgress/></Grid> :
             <form onSubmit={onFormSubmit}>
               <Grid container>
                 <Grid item 
                 xs={12}
                 sx={{mb: 2}}>
                   <TextField 
-                    label="correo" 
+                    label="jondoe@mail.com" 
                     type="email" 
                     placeholder='Correo@google.com' 
                     fullWidth
@@ -61,7 +61,7 @@ export const LoginPage = () => {
                   xs={12}> 
 
                   <TextField 
-                    label="contraseña" 
+                    label="123456" 
                     type="password" 
                     placeholder='password' 
                     fullWidth

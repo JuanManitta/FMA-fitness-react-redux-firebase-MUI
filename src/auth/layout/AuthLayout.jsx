@@ -41,7 +41,11 @@ export const AuthLayout = ({children, title = ''}) => {
           <Typography className="text-center" variant="h5" sx={{mb: 6}}>
             {title}
           </Typography>
+
           </Box>
+          <Typography marginBottom={2} textAlign={'left'} fontSize={12}>
+          <b>*Usuario demo para ingresar</b> <br /> Correo: jondoe@mail.com <br />Contraseña: 123456
+          </Typography>
 
           { children }
           

@@ -62,43 +62,40 @@ export const Cuenta = () => {
     <FmaLayout>
       <Grid container
         sx={{ minHeight:'100vh', display:'grid'}}>
+
           <Grid item
             xs={12}
-            sx={{display: 'flex'}}>
+            sx={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
               <Grid item
-                xs={5}
-                sx={{display:'grid', placeItems:'center'}}>
-
-                  <img className='portada_img' src={portada} alt="" />
+                xs={6} sx={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
+                  <img className='portada_img' src={portada} alt="Perfil_image" />
                
               </Grid>
               <Grid item
-                xs={7}
-                sx={{display:'flex', alignItems:'center'}}>
-                <Typography fontWeight={'bold'} variant='h4'>
+                xs={6} sx={{justifyContent:'center', alignItems:'center', display: 'flex'}}>
+                <Typography fontWeight={'bold'} variant='h4' sx={{ fontSize: { xs: 20 }}}>
                   PERFIL
                 </Typography>
               </Grid>
 
           </Grid>
+          
           <Grid item
-            xs={12}
-            sx={{display:'flex', height:'50vh', mt: 6, justifyContent:'flex-end'}}>
+          
+            sx={{display:{ xs: 'grid', sm: 'grid', md: 'grid', lg: 'flex'} , mt: 6 }}>
               <Grid item
-                xs={5}
-                sx={{display:'grid',}}>
+                xs={12}
+                sx={{p:5}}>
 
                   <Grid container
-                    sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', mb:2}}>
+                    sx={{display:'flex', mb:2}}>
                       
                       <Grid item
-                      xs={2}>
+                      xs={1} marginRight={3}>
                         <Home fontSize='large'/>
                       </Grid>
 
                       <Grid item
-                      xs={8}
-                      
                       >
                         <Typography sx={{cursor:'pointer'}}>
                            <Button 
@@ -113,14 +110,14 @@ export const Cuenta = () => {
 
                   </Grid>
                   <Grid container
-                    sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', mb:2}}>
+                    sx={{display:'flex', mb:2}}>
                       <Grid item
-                      xs={2}>
+                      xs={1}
+                      marginRight={3}>
                         <CreditCard fontSize='large'/>
                       </Grid>
 
-                      <Grid item
-                      xs={8}>
+                      <Grid item>
                         <Typography>
                           <Button 
                             sx={{'&:hover': {color: 'black'}, backgroundColor: { xs: handleShowSuscription === true ? 'secondary.main' : 'grey'},
@@ -134,14 +131,14 @@ export const Cuenta = () => {
 
                   </Grid>
                   <Grid container
-                    sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', mb:2}}>
+                    sx={{display:'flex', mb:2}}>
                       <Grid item
-                      xs={2}>
+                      xs={1}
+                      marginRight={3}>
                         <Lock fontSize='large'/>
                       </Grid>
 
-                      <Grid item
-                      xs={8}>
+                      <Grid item>
                         <Typography>
                           <Button
                             sx={{'&:hover': {color: 'black'}, backgroundColor: { xs: handleShowPassword === true ? 'secondary.main' : 'grey'},
@@ -155,14 +152,13 @@ export const Cuenta = () => {
 
                   </Grid>
                   <Grid container
-                    sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', mb:2}}>
+                    sx={{display:'flex', mb:2}}>
                       <Grid item
-                      xs={2}>
+                      xs={1} marginRight={3}>
                         <FitnessCenter fontSize='large'/>
                       </Grid>
 
-                      <Grid item
-                      xs={8}>
+                      <Grid item>
                         <Typography>
                           <Button
                             sx={{'&:hover': {color: 'black'}, backgroundColor: { xs: handleShowActividades === true ? 'secondary.main' : 'grey'},
@@ -177,14 +173,13 @@ export const Cuenta = () => {
 
                   </Grid>
                   <Grid container
-                    sx={{display:'flex', alignItems:'center', justifyContent:'flex-end', mb:2}}>
+                    sx={{display:'flex', mb:2}}>
                       <Grid item
-                      xs={2}>
+                      xs={1} marginRight={3}>
                         <Receipt fontSize='large'/>
                       </Grid>
 
-                      <Grid item
-                      xs={8}>
+                      <Grid item>
                         <Typography>
                           <Button
                             sx={{'&:hover': {color: 'black'}, backgroundColor: { xs: handleShowRecibos === true ? 'secondary.main' : 'grey'},
@@ -199,6 +194,7 @@ export const Cuenta = () => {
                   </Grid>
                 
               </Grid>
+
               <Perfil
                 handleShowPerfil={handleShowPerfil}/>
               <Suscription 

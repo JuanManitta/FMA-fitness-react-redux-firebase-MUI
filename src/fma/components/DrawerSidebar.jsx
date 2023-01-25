@@ -86,7 +86,7 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
             disablePadding
             sx={{mt: '40px', ':hover': {backgroundColor: 'secondary.main'} }}
             >
-            <ListItemButton onClick={onInicioNavigate}
+            <ListItemButton className='drawer__si' onClick={onInicioNavigate}
             >
                 <ListItemIcon
                 >
@@ -183,8 +183,9 @@ export const DrawerSidebar = ({isDrawerOpen, setIsDrawerOpen }) => {
              sx={{position: 'fixed',
              fontSize: 14,
              bottom: 18,
-             marginLeft:'18px',
+             marginLeft:'5px',
              color: 'tercery.main',
+             textTransform:'uppercase'
          }}>
                  {displayName}
              </Typography>

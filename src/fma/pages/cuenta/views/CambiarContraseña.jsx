@@ -6,10 +6,8 @@ export const CambiarContraseña = ({handleShowPassword}) => {
   return (
     <Grid item
         xs={7}
-        sx={{display:{ xs:handleShowPassword === false ? 'none' : 'block'}}}>
-            <h1>Sin completar</h1>
-          
-        
+        sx={{display:{ xs:handleShowPassword === false ? 'none' : 'felx'}, p: 8}}>
+            <h3 >Sin implementar</h3>
     </Grid>
   )
 }

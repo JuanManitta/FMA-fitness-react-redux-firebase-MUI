@@ -1,8 +1,7 @@
-import { Email, FmdGood, Instagram, KeyboardArrowDown, LibraryBooks, MenuOutlined, Phone, Security, WhatsApp } from "@mui/icons-material"
-import { Button, Divider, Grid, TextField, Typography, FormControlLabel, Radio, AppBar, IconButton, Drawer, BottomNavigation, Toolbar, Container, ListItem } from "@mui/material"
+import { Email, FmdGood, KeyboardArrowDown, LibraryBooks, Phone, Security, WhatsApp } from "@mui/icons-material"
+import { Button, Grid, TextField, Typography, IconButton, Container } from "@mui/material"
 import { Box } from "@mui/system"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { FmaLayout } from "../../layout/FmaLayout"
 
 export const Contacto = () => {
@@ -46,7 +45,7 @@ export const Contacto = () => {
       container
       direction="row"
       justifyContent="center"
-      sx={{ backgroundColor: '#F3F5FA', display: 'flex', pl:2, pr:2, justifyContent:'space-around'}}
+      sx={{ backgroundColor: 'white', display: 'flex', pl:2, pr:2, justifyContent:'space-around'}}
       >
         <Grid item xs={5}>
           <Typography  sx={{textAlign:'center', fontSize: 30, fontWeight:'bold', mt:6, mb: 4 }}>CONTACTO</Typography>
@@ -62,7 +61,7 @@ export const Contacto = () => {
       direction="row"
       justifyContent="center"
       alignContent="center"
-      sx={{ backgroundColor: '#F3F5FA', display: 'flex', justifyContent: 'space-around' }}
+      sx={{ backgroundColor: 'white', display: 'flex', justifyContent: 'space-around' }}
       >
         <Grid
         item
